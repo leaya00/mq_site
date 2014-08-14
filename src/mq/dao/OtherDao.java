@@ -32,4 +32,17 @@ public class OtherDao  {
     public void deleteServiceInfo(String id){
     	otherMapper.deleteServiceInfo(id);
     }
+    
+    public void updateBaseInfo(HashMap<String,Object> map){
+    	otherMapper.updateBaseInfo(map);
+    }
+    public List<HashMap<String,Object>>selectAllBaseInfo(){
+    	return otherMapper.selectAllBaseInfo();
+    }
+    public HashMap<String,Object> selectOneBaseInfo(String id){
+    	return otherMapper.selectOneBaseInfo(id);
+    }
+    public HashMap<String,Object> selectOneBaseInfoByCode(String code){
+    	return otherMapper.selectOneBaseInfoByCode(code);
+    }
 }

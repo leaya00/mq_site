@@ -31,7 +31,8 @@
                     	<div class="left_nav">
                 			<ul>
                 				<c:forEach items="${typeList}" var="navType">
-                            		<li <c:if test="${navType.id==types.id}">class="to"</c:if> ><a href="#">${navType.title}</a></li>
+                            		<li <c:if test="${navType.id==types.id}">class="to"</c:if> >
+                            		<a href="newsList.shtml?type=${navType.id}&pageNo=1">${navType.title}</a></li>
                             	</c:forEach>
                     		</ul>
                     	</div>
@@ -40,21 +41,22 @@
                 	<div class="title">${types.title}</div>
                     <div class="left_news">
                     	<ul>
-                        	<li><a href="#">小米智能家居大突进 智能插座</a></li>
-                            <li><a href="#">小米智能家居大突进 智能插座</a></li>
-                            <li><a href="#">小米智能家居大突进 智能插座</a></li>
-                            <li><a href="#">小米智能家居大突进 智能插座</a></li>
-                            <li><a href="#">小米智能家居大突进 智能插座</a></li>
+                    		<c:forEach items="${top5List}" var="top5">
+                    			<li><a href="news.shtml?id=${top5.id}">${top5.title }</a></li>
+                    		</c:forEach>
+                        	
+                            
                         </ul>
                     </div>
                 </div>
                 <div class="service">
                 	<div class="title"></div>
                     <div class="service_kf">
-                    	<p>客服1：00000000</p>
-                        <p>客服2：11111111</p>
-                        <p>客服3：22222222</p>
-                        <p>客服4：33333333</p>
+                    	<c:forEach items="${serviceInfoList }" var="serviceInfo">
+                    		<p>${serviceInfo.name}：${serviceInfo.telphone}</p>
+                    	</c:forEach>
+                    
+                       
                     </div>
                 </div>
             </div>

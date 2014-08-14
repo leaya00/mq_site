@@ -22,27 +22,32 @@
 </head>
 <body>
 	<div id='content' class='container'>
-		<form role="form" id="newsForm" method="post" action="m_serviceInfoSave.shtml">
+		<form role="form" id="newsForm" method="post" action="m_baseInfoSave.shtml">
 			<input type="hidden" name="id" value="${id}">
 			<div class="form-group">
-				<label for="name" class="col-sm-2">客服名称</label>
+				<label for="name" class="col-sm-2">代码</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="name" name="name"
-						style="width: 500px;" value="${serviceInfo.name}">
+					<b>${baseInfo.code}</b>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="telphone" class="col-sm-2">电话</label>
+				<label for="name" class="col-sm-2">含义</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="telphone" name="telphone"
-						style="width: 500px;" value="${serviceInfo.telphone}">
+					<b>${baseInfo.remark}</b>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="newsorder" class="col-sm-2">排序</label>
+				<label for="value" class="col-sm-2">内容</label>
+				<div class="col-sm-10">
+					<textarea rows="20" class="form-control" style="width: 500px;"
+						name="value" id="value">${baseInfo.value}</textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="xh" class="col-sm-2">排序</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="xh"
-						name="xh" style="width: 400px;" value="${serviceInfo.xh}">
+						name="xh" style="width: 400px;" value="${baseInfo.xh}">
 				</div>
 			</div>
 			
@@ -59,14 +64,6 @@
 	<script type="text/javascript">
 		saveNews = function() {
 			
-			if($("#name").val()==""){
-				artDialog.tips("客服名称必须填写");
-				return;
-			}
-			if($("#telphone").val()==""){
-				artDialog.tips("电话必须填写");
-				return;
-			}
 			if(CheckINT($("#xh").val())==false){
 				artDialog.tips("序号必须是正整数");
 				return;

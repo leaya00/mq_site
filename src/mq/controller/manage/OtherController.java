@@ -38,30 +38,69 @@ public class OtherController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("manage/serviceInfoEdit");
 		mav.addObject("id", id);
-		if (id.equals("-1") ==false) {
-			HashMap<String,Object> serviceInfo=otherDao.selectOneServiceInfo(id);
-			mav.addObject("serviceInfo",serviceInfo);
+		if (id.equals("-1") == false) {
+			HashMap<String, Object> serviceInfo = otherDao
+					.selectOneServiceInfo(id);
+			mav.addObject("serviceInfo", serviceInfo);
 		}
 		return mav;
 
 	}
+
 	@RequestMapping(value = "/m_serviceInfoSave")
-	public String typeSave(@RequestParam(value = "id") String id,
+	public String serviceInfoSave(@RequestParam(value = "id") String id,
 			HttpServletRequest request) {
-		HashMap<String,Object> map=new HashMap<String, Object>();
-    	//title,type,xh
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		// title,type,xh
 		map.put("name", request.getParameter("name"));
 		map.put("telphone", request.getParameter("telphone"));
 		map.put("xh", request.getParameter("xh"));
 		map.put("id", id);
-		if (id.equals("-1") ) {
-			//insert
+		if (id.equals("-1")) {
+			// insert
 			otherDao.insertServiceInfo(map);
 			return "redirect:/m_serviceInfo.shtml";
 		} else {
-			otherDao.updateServiceInfo(map);
+			if (request.getParameter("del") == null) {
+				otherDao.updateServiceInfo(map);
+			} else {
+				otherDao.deleteServiceInfo(id);
+			}
 			return "redirect:/m_serviceInfo.shtml";
 		}
+	}
 
+	// 基本信息
+	@RequestMapping(value = "/m_baseInfo")
+	public ModelAndView baseInfoList() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manage/baseInfoList");
+		mav.addObject("baseInfoList", otherDao.selectAllBaseInfo());
+		return mav;
+
+	}
+
+	@RequestMapping(value = "/m_baseInfoEdit")
+	public ModelAndView baseInfoEdit(@RequestParam(value = "id") String id) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manage/baseInfoEdit");
+		mav.addObject("id", id);
+		if (id.equals("-1") == false) {
+			mav.addObject("baseInfo", otherDao.selectOneBaseInfo(id));
+		}
+		return mav;
+
+	}
+
+	@RequestMapping(value = "/m_baseInfoSave")
+	public String baseInfoSave(@RequestParam(value = "id") String id,
+			HttpServletRequest request) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("value", request.getParameter("value"));
+		map.put("xh", request.getParameter("xh"));
+		map.put("id", id);
+		otherDao.updateBaseInfo(map);
+
+		return "redirect:/m_baseInfo.shtml";
 	}
 }

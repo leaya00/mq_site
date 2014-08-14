@@ -80,7 +80,9 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="button" onclick="saveNews();" class="btn btn-default">保存</button>
+					<button type="button" onclick="saveNews();" class="btn btn-default" >保存</button>
+					<button type="button" onclick="history.go(-1);" class="btn btn-default" >返回</button>
+					
 				</div>
 			</div>
 		</form>

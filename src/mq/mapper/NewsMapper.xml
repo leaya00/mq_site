@@ -23,6 +23,9 @@
 		update news set title=#{title},author=#{author},createtime=now(),content=#{content},newsorder=#{newsorder},type=#{type}
 		 where id = #{id}
 	</update>
+	<delete id="deleteNews" parameterType="String">
+		delete from news where id=#{id}
+	</delete>
 	<select id="getPreNewsId" parameterType="String" resultType="map">
 		 select id,title from news where id&lt;#{id} order by id desc limit 1;
       

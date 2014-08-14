@@ -16,6 +16,9 @@
 	rel="stylesheet">
 <script type="text/javascript"
 	src="<%=basepath%>/js/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript"
+	src="<%=basepath%>/js/artDialog/artDialog.js?skin=default"></script>
+<script type="text/javascript" src="<%=basepath%>/js/utils.js"></script>	
 </head>
 <body>
 	<select class="form-control" id="type" name="type" onchange="filterType($(this).val())">
@@ -44,7 +47,8 @@
 					<td><fmt:formatDate value="${news.createtime}"
 							pattern="yyyy-MM-dd HH:mm:ss" /></td>
 					<td>${news.newsorder}</td>
-					<td><button type="button" class="btn btn-info">删除</button>
+					<td><button type="button" class="btn btn-info"
+						onclick="delInfo(${news.id});">删除</button>
 						<button type="button" class="btn btn-info"
 							onclick="editNews(${news.id});">编辑</button></td>
 				</tr>
@@ -62,6 +66,11 @@
 	<script type="text/javascript">
 		editNews=function(id){
 			window.location.href="m_newsEdit.shtml?type=${type}&id="+id;
+		};
+		delInfo=function(id){
+			artDialog.confirm("是否删除id为"+id+"的数据",function(){
+				window.location.href="m_newsSave.shtml?type=${type}&del=1&id="+id;
+			});
 		};
 		filterType=function(type){
 			window.location.href="m_news.shtml?pageNo=1&type="+type;

@@ -37,15 +37,14 @@
                 <div class="service">
                 	<div class="title"></div>
                     <div class="service_kf">
-                    	<p>客服1：00000000</p>
-                        <p>客服2：11111111</p>
-                        <p>客服3：22222222</p>
-                        <p>客服4：33333333</p>
+                    	<c:forEach items="${serviceInfoList }" var="serviceInfo">
+                    		<p>${serviceInfo.name}：${serviceInfo.telphone}</p>
+                    	</c:forEach>
                     </div>
                     <div class="service_kf">
-                    	<p>热线：400-666-8888</p>
-                        <p>邮箱：mirunkf@mirun.com</p>
-                        <p>联系人：X先生</p>
+                    	<p>热线：${hot_telphone.value}</p>
+                        <p>邮箱：${hot_email.value }</p>
+                        <p>联系人：${ hot_linkman.value}</p>
                     </div>
                 </div>
             </div>

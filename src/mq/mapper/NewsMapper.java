@@ -18,4 +18,6 @@ public interface NewsMapper {
     public  void updateNews(HashMap<String,Object> map);
     public HashMap<String,Object> getPreNewsId(String id);
     public HashMap<String,Object> getNextNewsId(String id);
+    
+    public void deleteNews(String id);
 }

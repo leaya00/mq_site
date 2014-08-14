@@ -1,0 +1,265 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>米润科技</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery1.42.min.js"></script>
+		<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+
+	</head>
+
+	<body>
+		<!--top-->
+		<div class="topW">
+			<div class="top">
+				<div class="logo">
+					<a href="#">
+						米润科技
+					</a>
+				</div>
+				<div class="menu">
+					<div class="topMenu">
+						<ul>
+							<li>
+								<a href="">
+									会员中心
+								</a>
+							</li>
+							<li>
+								<a href="">
+									加入收藏
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="main_menu">
+						<ul>
+							<li class="on">
+								<a href="">
+									网站首页
+								</a>
+							</li>
+							<li>
+								<a href="">
+									公司概况
+								</a>
+							</li>
+							<li>
+								<a href="">
+									品牌业务
+								</a>
+							</li>
+							<li>
+								<a href="">
+									新闻资讯
+								</a>
+							</li>
+							<li>
+								<a href="">
+									加入米润
+								</a>
+							</li>
+							<li class="endli">
+								<a href="">
+									联系我们
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fullSlide">
+			<div class="bd">
+				<ul>
+					<li _src="url(img/banner01.jpg)" style="background:#66b6e5 center 0 no-repeat;">
+						<a target="_blank" href="#"></a>
+					</li>
+					<li _src="url(img/brand02.png)" style="background:#DED5A1 center 0 no-repeat;">
+						<a target="_blank" href="#"></a>
+					</li>
+					<li _src="url(img/banner01.jpg)" style="background:#B8CED1 center 0 no-repeat;">
+						<a target="_blank" href="#"></a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="hd">
+				<ul></ul>
+			</div>
+			
+		</div>
+		<div class="noticeW">
+			<div class="notice">
+				<span class="notice_title">最新动态</span>
+				<div class="txtScroll-top">
+					<div class="bd">
+						<ul class="infoList">
+							<li><span class="date">2011-11-11</span><a href="#" target="_blank">中国打破了世界软件巨头规则</a></li>
+							<li><span class="date">2011-11-11</span><a href="#" target="_blank">口语：会说中文就能说英语！</a></li>
+							<li><span class="date">2011-11-11</span><a href="#" target="_blank">农场摘菜不如在线学外语好玩</a></li>
+							<li><span class="date">2011-11-11</span><a href="#" target="_blank">数理化老师竟也看学习资料？</a></li>
+							<li><span class="date">2011-11-11</span><a href="#" target="_blank">学英语送ipad2,45天突破听说</a></li>
+							<li><span class="date">2011-11-11</span><a href="#" target="_blank">学外语，上北外！</a></li>
+							<li><span class="date">2011-11-11</span><a href="#" target="_blank">那些无法理解的荒唐事</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="anliW">
+			<div class="manli" style="margin:0 auto">
+				<div class="bd">
+					<a href="javascript:void(0)" class="prev"></a>
+					<a href="javascript:void(0)" class="next"></a>
+					<div class="scrollWrap">
+							<ul class="picList">
+									<li>
+										<h3><a href="">智能门禁案例</a></h3>
+										<div class="left_text">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</div>
+										<div class="right_img">
+											<a href=""><img src="img/anli_img01.png"/></a>
+											<a href="" class="more">查看详细</a>
+										</div>
+								   </li>
+								   <li>
+										<h3><a href="">智能社区案例</a></h3>
+										<div class="left_text">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</div>
+										<div class="right_img">
+											<a href=""><img src="img/anli_img02.png"/></a>
+											<a href="" class="more">查看详细</a>
+										</div>
+								   </li>
+								   <li>
+										<h3><a href="">节能减排案例</a></h3>
+										<div class="left_text">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</div>
+										<div class="right_img">
+											<a href=""><img src="img/anli_img03.png"/></a>
+											<a href="" class="more">查看详细</a>
+										</div>
+								   </li>
+								   <li>
+										<h3><a href="">智能门禁案例</a></h3>
+										<div class="left_text">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</div>
+										<div class="right_img">
+											<a href=""><img src="img/anli_img01.png"/></a>
+											<a href="" class="more">查看详细</a>
+										</div>
+								   </li>
+							</ul>
+					</div>
+				</div>
+		</div>
+	</div>
+		<div class="yewu">
+			<div class="title">
+				<div class="left">主打品牌业务<span>The main brand business</span></div>
+				<a href="#">查看更多</a>
+			</div>
+			<ul id="yewuUl">
+				<li><div id="yewu01" class="myewu"><img src="img/brand02.png"/><a href="#"><span>查看详细</span></a></div><div class="shuoming"><h3>智能门禁</h3><p>是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度</p></div></li>
+				<li><div id="yewu02" class="myewu"><img src="img/brand02.png"/><a href="#"><span>查看详细</span></a></div><div class="shuoming"><h3>智慧社区</h3><p>是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度</p></div></li>
+				<li><div id="yewu03" class="myewu"><img src="img/brand03.png"/><a href="#"><span>查看详细</span></a></div><div class="shuoming"><h3>3D人脸识别</h3><p>是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度</p></div></li>
+				<li class="endli"><div id="yewu04" class="myewu"><img src="img/brand04.png"/><a href="#"><span>查看详细</span></a></div><div class="shuoming"><h3>空气源热泵系统</h3><p>是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度</p></div></li>
+			</ul>
+		</div>
+		<div class="news_jianjie">
+			<div class="news">
+				<div class="title">
+					<div class="left">新闻中心<span>NEWS</span></div>
+				</div>
+				<div class="news_hot">
+					<a href="#" class="img"><img src="img/newimg.png"/></a>
+					<div class="zaiyao">
+						<a class="mtitle" href="">智能家居九大靠谱势力:不止是苹果谷歌的战争 </a>
+						<p>智能家居九大靠谱势力:不止是苹果谷歌的战争 智能家居从产品战争升级为平台战争。大公司将在平台和生态系统控制权苹果谷歌的战争 智能家居从产品战上展开激烈搏斗,中小硬件公司和创业者则需要在这</p>
+					</div>
+				</div>
+				<ul class="list">
+					<li><a href="">智能家居九大靠谱势力</a></li>
+					<li><a href="">智能家居从产品战争升级为平台战争</a></li>
+					<li><a href="">大公司将在平台和生态系统控制权苹</a></li>
+					<li><a href="">中小硬件公司和创业者</a></li>
+					<li><a href="">大公司将在平台和生态系统控制权苹</a></li>
+					<li><a href="">中小硬件公司和创业者</a></li>
+				</ul>
+			</div>
+			<div class="jianjie">
+				<div class="title">重庆米润科技有限公司</div>
+				<div class="biaoyu">我们坚持“简单就是智慧”</div>
+				<div class="jianjie_text">
+					<p>重庆米润科技有限公司,成立于2014年3月，注册资金300万元,公司位于渝北区黄山大道中段55号附2号（麒麟D座）</p>
+					<p>集产、学、研为一体科技型企业，公司现有职工56人，大专以上学历人员48人，外聘专家教授2人。公司主营业务：节能技术，与节能服务。</p>
+					<p>公司与重庆大学、解放军后勤工程学院等院校已签订长期产学研合作模式，在智能家居产品开发领域实现技术共享，并且在检测设备、实验仪器、项目应用等方面实现资源共享。</p>
+					
+				</div>
+			</div>
+		</div>
+		<div class="footerW">
+			<div class="footer">
+				<div class="footerlogo"><a href=""></a></div>
+				<div class="banquan">
+					<p>Copyright © 2013-2014 www.mirun.com Rights Reserved</p>
+					<p>重庆米润科技有限公司 保留一切权利 客服热线：400-8008810，023-9999292</p>
+					<p>渝ICP备93420394号 技术支持：<a href="http://www.mfanweb.com" target="_blank">梦帆互动</a></p>
+				</div>
+				<div class="fenxiang">
+					<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" charset="utf-8">
+	window.onload=function(){
+		var oyewuUl=document.getElementById("yewuUl");
+		var oyewuLi=oyewuUl.getElementsByTagName('li');
+		var num=0;
+		
+		for(var i=0;i<oyewuLi.length;i++){
+				oyewuLi[i].index=i;
+				oyewuLi[i].onmouseover=function(){
+					num=this.index;
+					var oDiv=oyewuLi[num].getElementsByTagName('div')[0];
+					var oA=oDiv.getElementsByTagName('a')[0];
+					oA.style.display='block';
+					this.style.cursor='pointer';
+				}
+				oyewuLi[i].onmouseout=function(){
+					num=this.index;
+					var oDiv=oyewuLi[num].getElementsByTagName('div')[0];
+					var oA=oDiv.getElementsByTagName('a')[0];
+					oA.style.display='none';
+				}
+		}
+	}	
+	</script>
+	<script type="text/javascript">
+			jQuery(".fullSlide").slide({
+				titCell : ".hd ul",
+				mainCell : ".bd ul",
+				effect : "fold",
+				autoPlay : true,
+				autoPage : true,
+				trigger : "click",
+				startFun : function(i) {
+					var curLi = jQuery(".fullSlide .bd li").eq(i);
+					/* 当前大图的li */
+					if (!!curLi.attr("_src")) {
+						curLi.css("background-image", curLi.attr("_src")).removeAttr("_src") /* 将_src地址赋予li背景，然后删除_src */
+					}
+				}
+			});
+			jQuery(".txtScroll-top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"top",autoPlay:true});
+			jQuery(".manli").slide({ mainCell:".picList", effect:"left",vis:3, scroll:1, autoPage:true});
+			
+			
+		</script>
+</html>

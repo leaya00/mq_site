@@ -66,7 +66,7 @@ public class Indexcontroller {
 		map.put("title", request.getParameter("title"));
 		map.put("author", request.getParameter("author"));
 		map.put("type", request.getParameter("type"));
-		map.put("newsorder", request.getParameter("newsorder").isEmpty()?0:request.getParameter("newsorder"));
+		map.put("newsorder", request.getParameter("newsorder")==null?0:request.getParameter("newsorder"));
 		map.put("content", request.getParameter("content"));
 		map.put("id", id);
 		if (id.equals("-1") ) {
@@ -74,11 +74,17 @@ public class Indexcontroller {
 			newsDao.insertTest(map);
 			return "redirect:/m_news.shtml?pageNo=1&type="+request.getParameter("type");
 		} else {
-			newsDao.updateNews(map);
+			if (request.getParameter("del") == null) {
+				newsDao.updateNews(map);
+			} else {
+				newsDao.deleteNews(id);
+			}
+			
 			return "redirect:/m_news.shtml?pageNo=1&type="+request.getParameter("type");
 		}
 
 	}
+	
 	//分类管理
 	@Autowired
 	TypeDao typeDao;

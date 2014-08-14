@@ -48,4 +48,7 @@ public class NewsDao  {
 	 public HashMap<String,Object> getNextNewsId(String id){
 		 return newsMapper1.getNextNewsId(id);
 	 }
+	 public void deleteNews(String id){
+		 newsMapper1.deleteNews(id);
+	 }
 }

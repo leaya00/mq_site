@@ -21,4 +21,17 @@
 	<select id="selectOneServiceInfo" resultType="map" parameterType="string">
 		select * from serviceInfo where id=#{id}
 	</select>
+	<!-- 基本信息 -->
+	<update id="updateBaseInfo" parameterType="map">
+		update baseInfo set value=#{value},xh=#{xh} where id = #{id}
+	</update>
+	<select id="selectAllBaseInfo" resultType="map">
+		select * from baseInfo  order by xh desc
+	</select>
+	<select id="selectOneBaseInfo" resultType="map" parameterType="string">
+		select * from baseInfo where id=#{id}
+	</select>
+	<select id="selectOneBaseInfoByCode" resultType="map" parameterType="string">
+		select * from baseInfo where code=#{code}
+	</select>
 </mapper>

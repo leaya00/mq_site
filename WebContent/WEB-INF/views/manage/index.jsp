@@ -41,6 +41,8 @@
 
 					<li role="presentation" ><a href="#"
 						link="m_serviceInfo.shtml">客服信息</a></li>
+					<li role="presentation" ><a href="#"
+						link="m_baseInfo.shtml">其他</a></li>						
 				</ul>
 
 			</div>
