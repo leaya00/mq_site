@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mq.mapper.TypeMapper">
+
+	
+	<select id="getTypeOne" resultType="map" parameterType="String">
+		select * from modeltype where id=#{id}
+	</select>
+	<select id="getTypes" resultType="map" parameterType="String">
+		select * from modeltype  where type=#{type} order by xh desc
+	</select>
+	
+	<insert id="insertType" parameterType="map">
+		insert into modeltype (title,type,xh) values(#{title},#{type},#{xh})
+	</insert>
+	<update id="updateType" parameterType="map">
+		update modeltype set title=#{title},xh=#{xh}
+		 where id = #{id}
+	</update>
+	
+</mapper>

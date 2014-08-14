@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<property name="alias" value="database" />
+		<property name="driver" value="com.mysql.jdbc.Driver" />
+
+		<property name="driverUrl"
+			value="jdbc:mysql://127.0.0.1:3306/mq_db?characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull" />
+
+		<property name="user" value="root" />
+		<property name="password" value="root" />
+
+
+		<!-- proxool自动侦察各个连接状态的时间间隔(毫秒),侦察到空闲的连接就马上回收,超时的销毁 默认30秒） -->
+		<!--<property name="houseKeepingSleepTime" value="${jdbc.houseKeepingSleepTime}" 
+			/> -->
+		<!-- 最少保持的空闲连接数 （默认2个） -->
+		<property name="prototypeCount" value="1" />
+		<!-- 最大活动时间(超过此时间线程将被kill,默认为5分钟) -->
+		<property name="maximumActiveTime" value="30000" />
+		<!-- 连接最长时间(默认为3个小时) -->
+		<!--<property name="maximumConnectionLifetime" value="${jdbc.maximumConnectionLifetime}"/> -->
+		<!-- 最小连接数 （默认2个） -->
+		<property name="minimumConnectionCount" value="2" />
+		<!-- 最大连接数 （默认5个） -->
+		<property name="maximumConnectionCount" value="200" />
+
+	</bean>
+
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+
+	<context:component-scan base-package="mq.dao" />
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="/WEB-INF/mybatisConfig.xml" />
+		<property name="typeAliasesPackage" value="mq.domain" />
+		<!-- <property name="mapperLocations" value="classpath*:com/demo/mapper/xml/*.xml" 
+			/> -->
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="mq.mapper" />
+	</bean>
+	<!-- 支持上传文件 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+</beans>
