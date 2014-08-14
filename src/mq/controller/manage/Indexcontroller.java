@@ -6,6 +6,7 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 
 import mq.dao.NewsDao;
+import mq.dao.ProductsDao;
 import mq.dao.TypeDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,7 +86,23 @@ public class Indexcontroller {
 		}
 
 	}
-	
+	//产品管理
+	@Autowired
+	ProductsDao productsDao;
+	@RequestMapping(value = "/m_products")
+	public ModelAndView products_List(@RequestParam(value = "pageNo") String page,@RequestParam(value = "type") String type) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<HashMap<String, Object>> productsList=productsDao.getProducts(page, pageSize,type);
+		String recordCount=productsDao.getProductsCount(type);
+		mav.addObject("type", type);
+		mav.addObject("pageSize", pageSize);
+		mav.addObject("recordCount", recordCount);
+		mav.addObject("productsList", productsList);
+		mav.addObject("typeList", typeDao.getTypes("2"));
+		mav.setViewName("manage/productsList");
+		return mav;
+
+	}
 	//分类管理
 	@Autowired
 	TypeDao typeDao;

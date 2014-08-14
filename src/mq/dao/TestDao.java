@@ -12,7 +12,7 @@ import mq.mapper.TestMapper;
 public class TestDao  {
 	@Autowired
 	TestMapper testMapper1;
-	public void insertTest(HashMap<String,String> map) {
+	public void insertTest(HashMap<String,Object> map) {
 		testMapper1.insertTest(map);
 		
 	}

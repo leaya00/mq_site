@@ -35,11 +35,15 @@
 
 				<ul id="myTab" class="nav nav-pills nav-stacked" role="tablist">
 					<li role="presentation" class="active"><a href="#"
-						link="m_type.shtml?type=1">新闻分类管理</a></li>
+						link="m_type.shtml?type=1">新闻分类</a></li>
 					<li role="presentation" ><a href="#"
-						link="m_news.shtml?pageNo=1&type=-1">新闻管理</a></li>
+						link="m_news.shtml?pageNo=1&type=-1">新闻</a></li>
 					<li role="presentation" ><a href="#"
-						link="m_type.shtml?type=2">产品分类管理</a></li>
+						link="m_type.shtml?type=2">产品分类</a></li>
+                    <li role="presentation" ><a href="#"
+						link="m_products.shtml?pageNo=1&type=-1">产品</a></li>
+					<li role="presentation" ><a href="#"
+						link="m_baseInfo.shtml">招聘信息</a></li>								
 					<li role="presentation" ><a href="#"
 						link="m_serviceInfo.shtml">客服信息</a></li>
 					<li role="presentation" ><a href="#"

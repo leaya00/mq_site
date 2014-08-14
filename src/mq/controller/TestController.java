@@ -41,7 +41,7 @@ public class TestController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("test");
 		mav.addObject("msg", "插入数据");
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("a", a);
 		map.put("b", b);
 		testDao.insertTest(map);
@@ -55,7 +55,7 @@ public class TestController {
 	public ModelAndView test2(@RequestParam(value = "a") int a,
 			@RequestParam(value = "b") int b) {
 		ModelAndView mav = new ModelAndView();
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("a", Integer.toString(a));
 		map.put("b", Integer.toString(b));
 		testDao.insertTest(map);
@@ -72,7 +72,7 @@ public class TestController {
 	public ModelAndView test3(@RequestParam(value = "a") int a,
 			@RequestParam(value = "b") int b) {
 		ModelAndView mav = new ModelAndView();
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("a", Integer.toString(a));
 		map.put("b", Integer.toString(b));
 		testDao.insertTest(map);

@@ -9,5 +9,5 @@ import org.springframework.stereotype.Component;
 @Component(value="testMapper")
 public interface TestMapper {
     public String getTest(int id);
-    public void insertTest(HashMap<String,String> map);
+    public void insertTest(HashMap<String,Object> map);
 }
