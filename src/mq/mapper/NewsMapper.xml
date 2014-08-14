@@ -17,10 +17,12 @@
 		select count(1) from news where ${_parameter}
 	</select>
 	<insert id="insertNews" parameterType="map">
-		insert into news (title,author,type,createtime,content,newsorder,delflag) values(#{title},#{author},#{type},now(),#{content},#{newsorder},0)
+		insert into news (title,author,type,createtime,content,newsorder,delflag,imgurl1) values(#{title},#{author},#{type},now(),#{content},#{newsorder},0
+		,#{imgurl1})
 	</insert>
 	<update id="updateNews" parameterType="map">
 		update news set title=#{title},author=#{author},createtime=now(),content=#{content},newsorder=#{newsorder},type=#{type}
+		 	,imgurl1=#{imgurl1}
 		 where id = #{id}
 	</update>
 	<delete id="deleteNews" parameterType="String">

@@ -38,7 +38,8 @@
 						link="m_type.shtml?type=1">新闻分类管理</a></li>
 					<li role="presentation" ><a href="#"
 						link="m_news.shtml?pageNo=1&type=-1">新闻管理</a></li>
-
+					<li role="presentation" ><a href="#"
+						link="m_type.shtml?type=2">产品分类管理</a></li>
 					<li role="presentation" ><a href="#"
 						link="m_serviceInfo.shtml">客服信息</a></li>
 					<li role="presentation" ><a href="#"

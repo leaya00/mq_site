@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mq.mapper.ProductsMapper">
+
+	<select id="getTest" resultType="String" parameterType="int">
+		select txt from t1 where id=#{id} 
+	</select>
+	<insert id="insertTest" parameterType="map">
+		insert into test (a,b) values(#{a},#{b})
+	</insert>
+</mapper>

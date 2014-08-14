@@ -24,7 +24,10 @@
 </head>
 <body>
 	<div id='content' class='container'>
+				
+						
 		<form role="form" id="newsForm" method="post" action="m_newsSave.shtml">
+			
 			<input type="hidden" name="id" value="${id}">
 			<div class="form-group">
 				<label for="title" class="col-sm-2">分类</label>
@@ -53,11 +56,13 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="newsorder" class="col-sm-2">排序</label>
+				
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="newsorder"
-						name="newsorder" style="width: 400px;" value="${news.newsorder}">
+					排序<input type="text" class="form-control" id="newsorder"
+						name="newsorder" style="width: 50px;" value="${news.newsorder}">
+                    缩略图地址<input type="text" name="imgurl1" id="imgurl1" style="width: 350px;" class="form-control" value="${news.imgurl1}">						
 				</div>
+				
 			</div>
 			<div class="form-group">
 				<label for="content" class="col-sm-2">内容</label>
@@ -86,6 +91,22 @@
 				</div>
 			</div>
 		</form>
+		<form action="uploadThumbnail.shtml?w=138&h=89" enctype ="multipart/form-data" method="post" target="uploadTarget">
+			<label >缩略图</label>
+			<img id="uploadThumbnail_img" src="${news.imgurl1}">
+			<input type="file" name="upload"><input type="submit" value="上传">
+		</form>
+		<script type="text/javascript">
+			uploadImageCallFunction=function(url,message){
+				if(message==""){
+					$("#uploadThumbnail_img").attr("src",url);
+					$("#imgurl1").val(url);
+				}else{
+					alert(message);
+				}
+			};
+		</script>
+		<iframe style="display: none;" name='uploadTarget'></iframe>		
 	</div>
 
 	<script type="text/javascript">
@@ -107,5 +128,7 @@
 		};
 		
 	</script>
+	
+	
 </body>
 </html>

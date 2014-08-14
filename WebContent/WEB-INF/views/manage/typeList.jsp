@@ -32,7 +32,7 @@
 				<td>${types.id}</td>
 				<td>${types.title}</td>				
 				<td>${types.xh}</td>
-				<td><button type="button" class="btn btn-info">删除</button>
+				<td><button type="button" class="btn btn-info" style="display: none;">删除</button>
 					<button type="button" class="btn btn-info" onclick="editType(${types.id});">编辑</button></td>
 			</tr>
 			</c:forEach>

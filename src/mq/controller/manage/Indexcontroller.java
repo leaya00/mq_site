@@ -68,6 +68,7 @@ public class Indexcontroller {
 		map.put("type", request.getParameter("type"));
 		map.put("newsorder", request.getParameter("newsorder")==null?0:request.getParameter("newsorder"));
 		map.put("content", request.getParameter("content"));
+		map.put("imgurl1", request.getParameter("imgurl1"));
 		map.put("id", id);
 		if (id.equals("-1") ) {
 			//insert
@@ -118,6 +119,8 @@ public class Indexcontroller {
 		map.put("title", request.getParameter("title"));
 		map.put("type", type);
 		map.put("xh", request.getParameter("xh"));
+		map.put("imgurl1", request.getParameter("imgurl1"));
+		map.put("remark", request.getParameter("remark"));
 		map.put("id", id);
 		if (id.equals("-1") ) {
 			//insert

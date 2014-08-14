@@ -6,6 +6,8 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +27,9 @@ public class UploadController {
 		String subPath="";
 		if(type.equals("1")){
 			subPath="news";
+		}
+		if(type.equals("99")){
+			subPath="remark";
 		}
 		String path = request.getSession().getServletContext()
 				.getRealPath(baseFilePath+"/"+subPath);
@@ -65,7 +70,7 @@ public class UploadController {
 	}
 	@RequestMapping(value = "/uploadThumbnail")
 	public void uploadThumbnail(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+			HttpServletResponse response,@RequestParam(value = "w") int width,@RequestParam(value = "h") int height) throws Exception {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String message = "";
 		String path = request.getSession().getServletContext()
@@ -89,9 +94,13 @@ public class UploadController {
 
 			}
 			if (extName != null) {
+				file_ture_name=file_ture_name+String.format("_%dx%d",width,height);
 				file_ture_name=file_ture_name.concat(extName);
 				File newfile = new File(path, file_ture_name);
 				mfile.transferTo(newfile);
+				Thumbnails.of(newfile) 
+		        .size(width, height).keepAspectRatio(false) 
+		        .toFile(newfile);
 			}
 		} else {
 			message = "文件大小不能超过5M";

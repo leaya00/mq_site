@@ -13,11 +13,10 @@
 	</select>
 	
 	<insert id="insertType" parameterType="map">
-		insert into modeltype (title,type,xh) values(#{title},#{type},#{xh})
+		insert into modeltype (title,type,xh,imgurl1,remark) values(#{title},#{type},#{xh},#{imgurl1},#{remark})
 	</insert>
 	<update id="updateType" parameterType="map">
-		update modeltype set title=#{title},xh=#{xh}
-		 where id = #{id}
+		update modeltype set title=#{title},xh=#{xh},imgurl1=#{imgurl1},remark=#{remark} where id = #{id}
 	</update>
 	
 </mapper>
