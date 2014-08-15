@@ -116,6 +116,26 @@
 			};
 		</script>
 		<iframe style="display: none;" name='uploadTarget'></iframe>
+		<table class="table table-bordered">
+		<thead>
+			<tr>
+				<td width="10%">页码</td>
+				<td width="10%">顺序号</td>
+				<td width="20%">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>第1页</td>
+				<td >3</td>
+				<td><button type="button" class="btn btn-info"
+						onclick="delInfo(${products.id});">删除</button>
+						<button type="button" class="btn btn-info"
+							onclick="editInfo(${products.id});">编辑</button></td>
+			</tr>
+		</tbody>
+		</table>
+		<button type="button" class="btn btn-info" onclick="editInfo(-1);">新建页码</button>
 	</div>
 	<script type="text/javascript">
 		saveNews = function() {

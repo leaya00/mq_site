@@ -28,9 +28,13 @@ public class UploadController {
 		if(type.equals("1")){
 			subPath="news";
 		}
+		if(type.equals("2")){
+			subPath="products";
+		}
 		if(type.equals("99")){
 			subPath="remark";
 		}
+		
 		String path = request.getSession().getServletContext()
 				.getRealPath(baseFilePath+"/"+subPath);
 		MultipartFile mfile = multipartRequest.getFile("upload");

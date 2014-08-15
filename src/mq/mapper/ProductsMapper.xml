@@ -30,4 +30,26 @@
 	<delete id="deleteProductdetail" parameterType="String">
 		delete from productdetail where id=#{id}
 	</delete>
+	
+	
+	
+	<insert id="insertProductdetail" parameterType="map">
+		insert into productdetail (productid,content,xh) values(#{productid},#{content},#{xh})
+	</insert>
+	<update id="updateProductdetail" parameterType="map">
+		update productdetail set content=#{content},xh=#{xh}
+		 where id = #{id}
+	</update>
+	<select id="getProductdetailOne" resultType="map" parameterType="String">
+		select * from productdetail where id=#{id}
+	</select>
+	<select id="getProductdetailByProductid" resultType="map" parameterType="String">
+		select * from productdetail where productid=#{productid}
+	</select>
+	<select id="getProductdetail" resultType="String" parameterType="map">
+		select id from productdetail where productid=${productid} order by xh desc limit ${pagestart},${pagesize}
+	</select>
+	<select id="getProductdetailCount" resultType="String" parameterType="String">
+		select count(1) from productdetail where productid=${productid}
+	</select>
 </mapper>

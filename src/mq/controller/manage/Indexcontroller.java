@@ -148,6 +148,22 @@ public class Indexcontroller {
 		}
 
 	}
+	@RequestMapping(value = "/m_productdetailEdit")
+	public ModelAndView productdetailEdit(@RequestParam(value = "id") String id,@RequestParam(value = "productid") String productid) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manage/productdetailEdit");
+		mav.addObject("id", id);
+		mav.addObject("typeList", typeDao.getTypes("2"));
+		HashMap<String,Object> products=new HashMap<String, Object>();
+	//	products.put("type", type);
+		products.put("xh", 0);
+		if (id.equals("-1") ==false) {
+			products=productsDao.getProductsOne(id);
+		}
+		mav.addObject("products",products);
+		return mav;
+
+	}
 	//分类管理
 	@Autowired
 	TypeDao typeDao;
