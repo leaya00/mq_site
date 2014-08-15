@@ -16,12 +16,18 @@
 	<select id="getNewsCount" resultType="String" parameterType="String">
 		select count(1) from news where ${_parameter}
 	</select>
+	<select id="getNewsOrderByTime" resultType="map" parameterType="String">
+		select * from news  order by createtime desc limit ${_parameter}
+	</select>
+	<select id="getNewsOrderByNewsorder" resultType="map" parameterType="String">
+		select * from news  order by newsorder desc limit ${_parameter}
+	</select>
 	<insert id="insertNews" parameterType="map">
 		insert into news (title,author,type,createtime,content,newsorder,delflag,imgurl1) values(#{title},#{author},#{type},now(),#{content},#{newsorder},0
 		,#{imgurl1})
 	</insert>
 	<update id="updateNews" parameterType="map">
-		update news set title=#{title},author=#{author},createtime=now(),content=#{content},newsorder=#{newsorder},type=#{type}
+		update news set title=#{title},author=#{author},content=#{content},newsorder=#{newsorder},type=#{type}
 		 	,imgurl1=#{imgurl1}
 		 where id = #{id}
 	</update>

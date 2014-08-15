@@ -11,70 +11,16 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery1.42.min.js"></script>
 		<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
-
+		<script type="text/javascript">
+			$(function($) {
+				setTitleMenu(0);
+			});
+		</script>
 	</head>
 
 	<body>
 		<!--top-->
-		<div class="topW">
-			<div class="top">
-				<div class="logo">
-					<a href="#">
-						米润科技
-					</a>
-				</div>
-				<div class="menu">
-					<div class="topMenu">
-						<ul>
-							<li>
-								<a href="">
-									会员中心
-								</a>
-							</li>
-							<li>
-								<a href="">
-									加入收藏
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div class="main_menu">
-						<ul>
-							<li class="on">
-								<a href="">
-									网站首页
-								</a>
-							</li>
-							<li>
-								<a href="">
-									公司概况
-								</a>
-							</li>
-							<li>
-								<a href="">
-									品牌业务
-								</a>
-							</li>
-							<li>
-								<a href="">
-									新闻资讯
-								</a>
-							</li>
-							<li>
-								<a href="">
-									加入米润
-								</a>
-							</li>
-							<li class="endli">
-								<a href="">
-									联系我们
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%@ include file="sitehead.jsp"%>
 		<div class="fullSlide">
 			<div class="bd">
 				<ul>
@@ -101,13 +47,13 @@
 				<div class="txtScroll-top">
 					<div class="bd">
 						<ul class="infoList">
-							<li><span class="date">2011-11-11</span><a href="#" target="_blank">中国打破了世界软件巨头规则</a></li>
-							<li><span class="date">2011-11-11</span><a href="#" target="_blank">口语：会说中文就能说英语！</a></li>
-							<li><span class="date">2011-11-11</span><a href="#" target="_blank">农场摘菜不如在线学外语好玩</a></li>
-							<li><span class="date">2011-11-11</span><a href="#" target="_blank">数理化老师竟也看学习资料？</a></li>
-							<li><span class="date">2011-11-11</span><a href="#" target="_blank">学英语送ipad2,45天突破听说</a></li>
-							<li><span class="date">2011-11-11</span><a href="#" target="_blank">学外语，上北外！</a></li>
-							<li><span class="date">2011-11-11</span><a href="#" target="_blank">那些无法理解的荒唐事</a></li>
+							<c:forEach items="${newsScrollList }" var="newsScroll">
+								<li><span class="date">
+									<fmt:formatDate value="${newsScroll.createtime}"	pattern="yyyy-MM-dd" />
+								</span>
+								<a href="news.shtml?id=${newsScroll.id}" target="_blank">${newsScroll.title }</a></li>
+							</c:forEach>
+						
 						</ul>
 					</div>
 				</div>
@@ -175,10 +121,10 @@
 					<div class="left">新闻中心<span>NEWS</span></div>
 				</div>
 				<div class="news_hot">
-					<a href="#" class="img"><img src="img/newimg.png"/></a>
+					<a href="#" class="img"><img src="${news_top1.imgurl1 }"/></a>
 					<div class="zaiyao">
-						<a class="mtitle" href="">智能家居九大靠谱势力:不止是苹果谷歌的战争 </a>
-						<p>智能家居九大靠谱势力:不止是苹果谷歌的战争 智能家居从产品战争升级为平台战争。大公司将在平台和生态系统控制权苹果谷歌的战争 智能家居从产品战上展开激烈搏斗,中小硬件公司和创业者则需要在这</p>
+						<a class="mtitle" target="_blank"  href="news.shtml?id=${news_top1.id}">${news_top1.title }</a>
+						${news_top1.content}
 					</div>
 				</div>
 				<ul class="list">

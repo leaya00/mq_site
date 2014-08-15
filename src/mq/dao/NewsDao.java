@@ -51,4 +51,11 @@ public class NewsDao  {
 	 public void deleteNews(String id){
 		 newsMapper1.deleteNews(id);
 	 }
+	 public ArrayList<HashMap<String,Object>>getNewsOrderByTime(String top){
+		 return newsMapper1.getNewsOrderByTime(top);
+	 }
+	 public ArrayList<HashMap<String,Object>>getNewsOrderByNewsorder(String top){
+		 return newsMapper1.getNewsOrderByNewsorder(top);
+	 }
+	 
 }

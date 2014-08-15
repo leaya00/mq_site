@@ -44,7 +44,7 @@
 								</a>
 							</li>
 							<li class="on">
-								<a href="">
+								<a href="newsList.shtml?pageNo=1">
 									新闻资讯
 								</a>
 							</li>

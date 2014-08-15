@@ -28,5 +28,8 @@ public class TypeDao  {
     public void updateType(HashMap<String,Object> map){
     	typeMapper.updateType(map);
     }
+    public String getTypes_topID(String type){
+    	return typeMapper.getTypes_topID(type);
+    }
 
 }

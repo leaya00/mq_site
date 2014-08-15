@@ -11,7 +11,9 @@
 	<select id="getTypes" resultType="map" parameterType="String">
 		select * from modeltype  where type=#{type} order by xh desc
 	</select>
-	
+	<select id="getTypes_topID" resultType="String" parameterType="String">
+		select id from modeltype  where type=#{type}  order by xh desc limit 1
+	</select>
 	<insert id="insertType" parameterType="map">
 		insert into modeltype (title,type,xh,imgurl1,remark) values(#{title},#{type},#{xh},#{imgurl1},#{remark})
 	</insert>

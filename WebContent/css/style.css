@@ -111,7 +111,7 @@ filter:alpha(opacity=50);opacity:0.5;  line-height:999px;
 .news .title .left span{ font-family: arial; font-size: 12px;padding-left:10px;}
 .news .news_hot{ clear: both; height: 110px;border-bottom: 1px dashed #d5d5d5;}
 .news .news_hot a.img {padding:4px; background: #fff;border:1px solid #D5D5D5; display: block; float: left;}
-.news .news_hot .zaiyao{ float: left;padding:0px 10px;width:466px;}
+.news .news_hot .zaiyao{ float: left;padding:0px 10px;width:466px;overflow: hidden;height: 87px;}
 .news .news_hot .zaiyao a.mtitle{color:#333;padding-top: 10px; font-size: 16px; font-family: "微软雅黑";}
 .news .news_hot .zaiyao p{line-height: 22px; color: #666;}
 

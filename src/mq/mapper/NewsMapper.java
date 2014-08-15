@@ -20,4 +20,7 @@ public interface NewsMapper {
     public HashMap<String,Object> getNextNewsId(String id);
     
     public void deleteNews(String id);
+    public ArrayList<HashMap<String,Object>>getNewsOrderByTime(String top);
+    public ArrayList<HashMap<String,Object>>getNewsOrderByNewsorder(String top);
+    
 }

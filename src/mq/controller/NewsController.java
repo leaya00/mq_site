@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import mq.dao.NewsDao;
 import mq.dao.OtherDao;
 import mq.dao.TypeDao;
@@ -47,8 +49,13 @@ public class NewsController {
 	}
 	static String  newsListPagesize=SystemUtils.getSystemPropertie("newsList.pagesize");
 	@RequestMapping(value = "/newsList")
-	public ModelAndView news(@RequestParam(value = "pageNo") String pageNo,@RequestParam(value = "type") String type) {
+	public ModelAndView news(@RequestParam(value = "pageNo") String pageNo,HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
+		String type=request.getParameter("type");
+		if(type==null){
+			//获取第一个分类id
+			type=typeDao.getTypes_topID("1");
+		}
 		//新闻列表页显示条数
 		String pageSize=newsListPagesize;
 		mav.setViewName("news");

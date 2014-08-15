@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
 		<script type="text/javascript">
 			$(function($) {
-				setTitleMenu(2);
+				setTitleMenu(3);
 			});
 		</script>
 	</head>

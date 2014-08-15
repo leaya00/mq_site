@@ -13,4 +13,5 @@ public interface TypeMapper {
     public List<HashMap<String,Object>>getTypes(String type);
     public void insertType(HashMap<String,Object> map);
     public void updateType(HashMap<String,Object> map);
+    public String getTypes_topID(String type);
 }
