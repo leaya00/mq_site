@@ -16,7 +16,7 @@
 	src="<%=basepath%>/js/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript"
 	src="<%=basepath%>/js/ckeditor/ckeditor.js"></script>
-<script src="<%=basepath%>/js/ckeditor/config.js" type="text/javascript"></script>	
+<script src="<%=basepath%>/js/ckeditor/config.js" type="text/javascript"></script>
 <script type="text/javascript"
 	src="<%=basepath%>/js/artDialog/artDialog.js?skin=default"></script>
 
@@ -28,16 +28,17 @@
 		<form role="form" id="newsForm" method="post"
 			action="m_productsSave.shtml">
 			<input type="hidden" name="id" value="${id}">
-			 <div class="form-group">
+			<div class="form-group">
 				<label for="title" class="col-sm-2">分类</label>
 				<div class="col-sm-10">
 					<select class="form-control" id="type" name="type">
 						<c:forEach items="${typeList}" var="types">
-							<option value="${types.id}" <c:if test="${products.type==types.id}">selected</c:if>>${types.title}</option>
+							<option value="${types.id}"
+								<c:if test="${products.type==types.id}">selected</c:if>>${types.title}</option>
 						</c:forEach>
-						
+
 					</select>
-					
+
 				</div>
 			</div>
 			<div class="form-group">
@@ -56,16 +57,16 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-10">
-					 缩略图78*78地址<input
-						type="text" name="imgurl1" id="imgurl1" style="width: 350px;"
-						class="form-control" value="${products.imgurl1}">
+					缩略图78*78地址<input type="text" name="imgurl1" id="imgurl1"
+						style="width: 350px;" class="form-control"
+						value="${products.imgurl1}">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-10">
-					 缩略图194*142地址<input
-						type="text" name="imgurl2" id="imgurl2" style="width: 350px;"
-						class="form-control" value="${products.imgurl2}">
+					缩略图194*142地址<input type="text" name="imgurl2" id="imgurl2"
+						style="width: 350px;" class="form-control"
+						value="${products.imgurl2}">
 				</div>
 			</div>
 			<div class="form-group">
@@ -73,26 +74,28 @@
 				<div class="col-sm-10">
 					<textarea rows="20" class="form-control" style="width: 500px;"
 						name="remark" id="remark">${products.remark}</textarea>
-					
+
 				</div>
 			</div>
 
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="button" onclick="saveNews();" class="btn btn-default">保存</button>
-					<button type="button" onclick="history.go(-1);"
+					<button type="button" onclick='window.location.href="m_products.shtml?pageNo=1&type=${products.type}";'
 						class="btn btn-default">返回</button>
 				</div>
 			</div>
 		</form>
-		<form action="uploadThumbnail.shtml?w=78&h=78&fun=uploadImageCallFunction1" enctype="multipart/form-data"
-			method="post" target="uploadTarget">
+		<form
+			action="uploadThumbnail.shtml?w=78&h=78&fun=uploadImageCallFunction1"
+			enctype="multipart/form-data" method="post" target="uploadTarget">
 			<label>缩略图78*78</label> <img id="uploadThumbnail_img1"
 				src="${products.imgurl1}"> <input type="file" name="upload"><input
 				type="submit" value="上传">
 		</form>
-		<form action="uploadThumbnail.shtml?w=194&h=142&fun=uploadImageCallFunction2" enctype="multipart/form-data"
-			method="post" target="uploadTarget">
+		<form
+			action="uploadThumbnail.shtml?w=194&h=142&fun=uploadImageCallFunction2"
+			enctype="multipart/form-data" method="post" target="uploadTarget">
 			<label>缩略图194*142</label> <img id="uploadThumbnail_img2"
 				src="${products.imgurl2}"> <input type="file" name="upload"><input
 				type="submit" value="上传">
@@ -116,28 +119,51 @@
 			};
 		</script>
 		<iframe style="display: none;" name='uploadTarget'></iframe>
+		详细信息
 		<table class="table table-bordered">
-		<thead>
-			<tr>
-				<td width="10%">页码</td>
-				<td width="10%">顺序号</td>
-				<td width="20%">操作</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>第1页</td>
-				<td >3</td>
-				<td><button type="button" class="btn btn-info"
-						onclick="delInfo(${products.id});">删除</button>
-						<button type="button" class="btn btn-info"
-							onclick="editInfo(${products.id});">编辑</button></td>
-			</tr>
-		</tbody>
+			<thead>
+				<tr>
+					<td width="10%">ID</td>
+					<td width="10%">页码</td>
+					<td width="10%">顺序号</td>
+					<td width="20%">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${productdetailList }" var="productdetail" varStatus="xx">
+					<tr>
+						<td>${productdetail.id}</td>
+						<td>第${xx.index+1}页</td>
+						<td>${productdetail.xh }</td>
+						<td><button type="button" class="btn btn-info"
+								onclick="delInfo(${productdetail.id});">删除</button>
+							<button type="button" class="btn btn-info"
+								onclick="editInfo(${productdetail.id});">编辑</button></td>
+					</tr>
+
+				</c:forEach>
+
+			</tbody>
 		</table>
-		<button type="button" class="btn btn-info" onclick="editInfo(-1);">新建页码</button>
+		<c:choose>
+			<c:when test="${id!=-1}">
+			<button type="button" class="btn btn-info" onclick="editInfo(-1);">新建页码</button>
+			</c:when>
+			<c:otherwise>
+				产品基本信息保存后才能新增详细信息
+			</c:otherwise>
+		</c:choose>
+		
 	</div>
 	<script type="text/javascript">
+		editInfo=function(id){
+			window.location.href="m_productdetailEdit.shtml?productid=${id}&id="+id;
+		};
+		delInfo=function(id){
+			artDialog.confirm("是否删除id为"+id+"的数据",function(){
+				window.location.href="m_productdetailSave.shtml?&productid=${id}&del=1&id="+id;
+			});
+		};
 		saveNews = function() {
 
 			if ($("#title").val() == "") {

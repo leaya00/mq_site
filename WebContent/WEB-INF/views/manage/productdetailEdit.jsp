@@ -26,23 +26,24 @@
 <body>
 	<div id='content' class='container'>
 		<form role="form" id="newsForm" method="post"
-			action="m_typeSave.shtml">
+			action="m_productdetailSave.shtml">
 			<input type="hidden" name="id" value="${id}"> 
 			<input
 				type="hidden" name="productid" value="${productid}">
 		
 
 			<div class="form-group">
+				<label for="xh" class="col-sm-2">排序</label>
 				<div class="col-sm-10">
-					排序<input type="text" class="form-control" id="xh" name="xh"
-						style="width: 50px;" value="${types.xh}">
+					<input type="text" class="form-control" id="xh" name="xh"
+						style="width: 50px;" value="${productdetail.xh}">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="content" class="col-sm-2">内容</label>
 				<div class="col-sm-10">
 					<textarea rows="20" class="form-control" style="width: 500px;"
-						name="content" id="mycontent">${types.remark}</textarea>
+						name="content" id="mycontent">${productdetail.content}</textarea>
 					<script>
 						CKEDITOR.replace('mycontent', {
 							toolbar : "Define",

@@ -41,10 +41,10 @@
 		 where id = #{id}
 	</update>
 	<select id="getProductdetailOne" resultType="map" parameterType="String">
-		select * from productdetail where id=#{id}
+		select * from productdetail  where id=#{id}
 	</select>
 	<select id="getProductdetailByProductid" resultType="map" parameterType="String">
-		select * from productdetail where productid=#{productid}
+		select * from productdetail where productid=#{productid} order by xh desc
 	</select>
 	<select id="getProductdetail" resultType="String" parameterType="map">
 		select id from productdetail where productid=${productid} order by xh desc limit ${pagestart},${pagesize}

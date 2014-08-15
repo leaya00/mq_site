@@ -105,18 +105,19 @@ public class Indexcontroller {
 
 	}
 	@RequestMapping(value = "/m_productsEdit")
-	public ModelAndView productsEdit(@RequestParam(value = "id") String id,@RequestParam(value = "type") String type) {
+	public ModelAndView productsEdit(@RequestParam(value = "id") String id) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("manage/productsEdit");
 		mav.addObject("id", id);
 		mav.addObject("typeList", typeDao.getTypes("2"));
 		HashMap<String,Object> products=new HashMap<String, Object>();
-		products.put("type", type);
 		products.put("xh", 0);
 		if (id.equals("-1") ==false) {
 			products=productsDao.getProductsOne(id);
 		}
 		mav.addObject("products",products);
+		
+		mav.addObject("productdetailList",productsDao.getProductdetailByProductid(id));
 		return mav;
 
 	}
@@ -148,21 +149,43 @@ public class Indexcontroller {
 		}
 
 	}
+	//产品详情
 	@RequestMapping(value = "/m_productdetailEdit")
 	public ModelAndView productdetailEdit(@RequestParam(value = "id") String id,@RequestParam(value = "productid") String productid) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("manage/productdetailEdit");
 		mav.addObject("id", id);
-		mav.addObject("typeList", typeDao.getTypes("2"));
-		HashMap<String,Object> products=new HashMap<String, Object>();
-	//	products.put("type", type);
-		products.put("xh", 0);
+		mav.addObject("productid", productid);
+		HashMap<String,Object> productdetail=new HashMap<String, Object>();
+		productdetail.put("productid", productid);
+		productdetail.put("xh", 0);
 		if (id.equals("-1") ==false) {
-			products=productsDao.getProductsOne(id);
+			productdetail=productsDao.getProductdetailOne(id) ;
 		}
-		mav.addObject("products",products);
+		mav.addObject("productdetail",productdetail);
 		return mav;
 
+	}
+	@RequestMapping(value = "/m_productdetailSave")
+	public String productdetailSave(@RequestParam(value = "id") String id,
+			HttpServletRequest request) {
+		HashMap<String,Object> map=new HashMap<String, Object>();
+		map.put("productid", request.getParameter("productid"));
+		map.put("xh", request.getParameter("xh")==null?0:request.getParameter("xh"));
+		map.put("content", request.getParameter("content"));
+		map.put("id", id);
+		if (id.equals("-1") ) {
+			//insert
+			productsDao.insertProductdetail(map);
+		} else {
+			if (request.getParameter("del") == null) {
+				productsDao.updateProductdetail(map);
+			} else {
+				productsDao.deleteProductdetail(id);
+			}
+			
+		}
+		return "redirect:/m_productsEdit.shtml?id="+request.getParameter("productid");
 	}
 	//分类管理
 	@Autowired
