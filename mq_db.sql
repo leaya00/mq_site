@@ -25,7 +25,11 @@ CREATE TABLE IF NOT EXISTS `baseinfo` (
 INSERT INTO `baseinfo` (`id`, `code`, `remark`, `value`, `xh`) VALUES
 	(1, 'hot_email', '热线-联系邮箱', 'xxxx@qq.com', 99),
 	(2, 'hot_linkman', '热线-联系人', '王某某', 2),
-	(3, 'hot_telphone', '热线-联系电话', '023-8888888', 0);
+	(3, 'hot_telphone', '热线-联系电话', '023-8888888', 0),
+	(4, 'index_about', '0', '0', 0),
+	(5, 'about', '0', '0', 0),
+	(7, 'index_about_biaoyu', '0', '0', 0),
+	(8, 'foot_telList', '0', '0', 0);
 /*!40000 ALTER TABLE `baseinfo` ENABLE KEYS */;
 
 
@@ -46,9 +50,10 @@ INSERT INTO `modeltype` (`id`, `type`, `title`, `remark`, `imgurl1`, `xh`) VALUE
 	(1, 1, '米润动态1', '<p><span style="color:rgb(255, 0, 0)">0sdfsdfsdfsdfsfd</span></p>\r\n\r\n<p><span style="color:rgb(255, 0, 0)">sdfsdfsdfsdf</span></p>\r\n', 'userImage/thumbnail/69132f48-3e16-4d1f-a248-6bd789436e16_233x137.png', 5),
 	(2, 1, '行业资讯1', '0', '0', 4),
 	(3, 1, '媒体报道1', '0', '0', 3),
-	(4, 2, '产品类别1', '', '', 3),
-	(6, 2, '产品类别2', '', '', 2),
-	(7, 2, '产品类别3', '', '', 1);
+	(4, 2, '产品类别1', 'sdfsdfsdfsdfdsf', 'userImage/thumbnail/f4de6443-b0ab-4cb3-9996-7bd316ad9160_233x137.jpg', 9),
+	(6, 2, '产品类别2', '', 'userImage/thumbnail/10619896-775b-4b87-bdfd-effd6e4e724f_233x137.jpg', 8),
+	(7, 2, '产品类别3', '', 'userImage/thumbnail/50eeb286-be6b-4c6d-8844-ef5873f16317_233x137.jpg', 7),
+	(8, 2, '产品类别4', '', 'userImage/thumbnail/dda8a9af-67e7-412e-91a9-dc0ef5647dff_233x137.jpg', 6);
 /*!40000 ALTER TABLE `modeltype` ENABLE KEYS */;
 
 
@@ -90,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `productdetail` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- 正在导出表  mq_db.productdetail 的数据：~0 rows (大约)
+-- 正在导出表  mq_db.productdetail 的数据：~4 rows (大约)
 /*!40000 ALTER TABLE `productdetail` DISABLE KEYS */;
 INSERT INTO `productdetail` (`id`, `productid`, `xh`, `content`) VALUES
 	(1, 6, 0, '<p>ddddd6</p>\r\n'),
@@ -112,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- 正在导出表  mq_db.products 的数据：~0 rows (大约)
+-- 正在导出表  mq_db.products 的数据：~6 rows (大约)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`id`, `type`, `title`, `imgurl1`, `imgurl2`, `remark`, `xh`) VALUES
 	(1, 6, 'a', 'b', 'c', 'd', 1),
