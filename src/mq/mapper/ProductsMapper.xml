@@ -6,10 +6,10 @@
 
 	
 	<insert id="insertProducts" parameterType="map">
-		insert into products (type,title,imgurl1,remark,xh) values(#{type},#{title},#{imgurl1},#{remark},#{xh})
+		insert into products (type,title,imgurl1,imgurl2,remark,xh) values(#{type},#{title},#{imgurl1},#{imgurl2},#{remark},#{xh})
 	</insert>
 	<update id="updateProducts" parameterType="map">
-		update products set title=#{title},imgurl1=#{imgurl1},remark=#{remark},xh=#{xh},type=#{type}
+		update products set title=#{title},imgurl1=#{imgurl1},imgurl2=#{imgurl2},remark=#{remark},xh=#{xh},type=#{type}
 		 where id = #{id}
 	</update>
 	<select id="getProductsOne" resultType="map" parameterType="String">

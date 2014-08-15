@@ -12,6 +12,7 @@ import mq.dao.TypeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Conventions;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -73,7 +74,7 @@ public class Indexcontroller {
 		map.put("id", id);
 		if (id.equals("-1") ) {
 			//insert
-			newsDao.insertTest(map);
+			newsDao.insertNews(map);
 			return "redirect:/m_news.shtml?pageNo=1&type="+request.getParameter("type");
 		} else {
 			if (request.getParameter("del") == null) {
@@ -101,6 +102,50 @@ public class Indexcontroller {
 		mav.addObject("typeList", typeDao.getTypes("2"));
 		mav.setViewName("manage/productsList");
 		return mav;
+
+	}
+	@RequestMapping(value = "/m_productsEdit")
+	public ModelAndView productsEdit(@RequestParam(value = "id") String id,@RequestParam(value = "type") String type) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manage/productsEdit");
+		mav.addObject("id", id);
+		mav.addObject("typeList", typeDao.getTypes("2"));
+		HashMap<String,Object> products=new HashMap<String, Object>();
+		products.put("type", type);
+		products.put("xh", 0);
+		if (id.equals("-1") ==false) {
+			products=productsDao.getProductsOne(id);
+		}
+		mav.addObject("products",products);
+		return mav;
+
+	}
+	@Transactional
+	@RequestMapping(value = "/m_productsSave")
+	public String productsSave(@RequestParam(value = "id") String id,
+			HttpServletRequest request) {
+		HashMap<String,Object> map=new HashMap<String, Object>();
+		map.put("title", request.getParameter("title"));
+		map.put("type", request.getParameter("type"));
+		map.put("xh", request.getParameter("xh")==null?0:request.getParameter("xh"));
+		map.put("remark", request.getParameter("remark"));
+		map.put("imgurl1", request.getParameter("imgurl1"));
+		map.put("imgurl2", request.getParameter("imgurl2"));
+		map.put("id", id);
+		if (id.equals("-1") ) {
+			//insert
+			productsDao.insertProducts(map);
+			return "redirect:/m_products.shtml?pageNo=1&type="+request.getParameter("type");
+		} else {
+			if (request.getParameter("del") == null) {
+				productsDao.updateProducts(map);
+			} else {
+				productsDao.deleteProducts(id);
+				productsDao.deleteAllProductdetail(id);
+			}
+			
+			return "redirect:/m_products.shtml?pageNo=1&type="+request.getParameter("type");
+		}
 
 	}
 	//分类管理

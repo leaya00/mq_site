@@ -43,12 +43,12 @@
 			<c:forEach items="${productsList}" var="products">
 				<tr>
 					<td>${products.id}</td>
-					<td><a target="_blank" href="news.shtml?id=${news.id}">${news.title}</a></td>
+					<td><a target="_blank" href="news.shtml?id=${products.id}">${products.title}</a></td>
 					<td>${products.xh}</td>
 					<td><button type="button" class="btn btn-info"
 						onclick="delInfo(${products.id});">删除</button>
 						<button type="button" class="btn btn-info"
-							onclick="editNews(${products.id});">编辑</button></td>
+							onclick="editInfo(${products.id});">编辑</button></td>
 				</tr>
 			</c:forEach>
 
@@ -60,10 +60,10 @@
 			</tr>
 		</tfoot>
 	</table>
-	<button type="button" class="btn btn-info" onclick="editNews(-1);">新建</button>
+	<button type="button" class="btn btn-info" onclick="editInfo(-1);">新建</button>
 	<script type="text/javascript">
-		editNews=function(id){
-			window.location.href="m_newsEdit.shtml?type=${type}&id="+id;
+		editInfo=function(id){
+			window.location.href="m_productsEdit.shtml?type=${type}&id="+id;
 		};
 		delInfo=function(id){
 			artDialog.confirm("是否删除id为"+id+"的数据",function(){

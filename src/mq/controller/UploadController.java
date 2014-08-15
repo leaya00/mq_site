@@ -109,9 +109,13 @@ public class UploadController {
 		
 		String url = baseFilePath+"/thumbnail/"+file_ture_name;
 		response.setHeader("Content-type", "text/html;charset=utf-8");
+		String funName="uploadImageCallFunction";
+		if(request.getParameter("fun")!=null){
+			funName=request.getParameter("fun");
+		}
 		response.getWriter()
 				.print(String
-						.format("<script type='text/javascript'>window.parent.uploadImageCallFunction( '%s', '%s');</script>",
-								 url, message));
+						.format("<script type='text/javascript'>window.parent.%s( '%s', '%s');</script>",
+								 funName,url, message));
 	}
 }

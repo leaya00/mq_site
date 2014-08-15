@@ -12,7 +12,7 @@ import mq.mapper.NewsMapper;
 public class NewsDao  {
 	@Autowired
 	NewsMapper newsMapper1;
-	public void insertTest(HashMap<String,Object> map) {
+	public void insertNews(HashMap<String,Object> map) {
 		newsMapper1.insertNews(map);
 		
 	}
