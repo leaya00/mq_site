@@ -31,5 +31,10 @@ public class TypeDao  {
     public String getTypes_topID(String type){
     	return typeMapper.getTypes_topID(type);
     }
-
+    public List<HashMap<String,Object>>getTypesTop(String type,String top){
+    	HashMap<String,Object> map=new HashMap<String, Object>();
+    	map.put("top", top);
+    	map.put("type", type);
+    	return typeMapper.getTypesTop(map);
+    }
 }

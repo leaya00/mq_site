@@ -73,8 +73,15 @@
 				<label for="remark" class="col-sm-2">产品简介</label>
 				<div class="col-sm-10">
 					<textarea rows="20" class="form-control" style="width: 500px;"
-						name="remark" id="remark">${products.remark}</textarea>
-
+						name="remark" id="mycontent">${products.remark}</textarea>
+					<script>
+						CKEDITOR.replace('mycontent', {
+							toolbar : "Define",
+							language : 'zh-cn',
+							image_previewText : ' ',
+							filebrowserUploadUrl : 'ckUploadImage.shtml?type=2'
+						});
+					</script>
 				</div>
 			</div>
 

@@ -109,10 +109,15 @@
 				<a href="#">查看更多</a>
 			</div>
 			<ul id="yewuUl">
-				<li><div id="yewu01" class="myewu"><img src="img/brand02.png"/><a href="#"><span>查看详细</span></a></div><div class="shuoming"><h3>智能门禁</h3><p>是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度</p></div></li>
-				<li><div id="yewu02" class="myewu"><img src="img/brand02.png"/><a href="#"><span>查看详细</span></a></div><div class="shuoming"><h3>智慧社区</h3><p>是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度</p></div></li>
-				<li><div id="yewu03" class="myewu"><img src="img/brand03.png"/><a href="#"><span>查看详细</span></a></div><div class="shuoming"><h3>3D人脸识别</h3><p>是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度</p></div></li>
-				<li class="endli"><div id="yewu04" class="myewu"><img src="img/brand04.png"/><a href="#"><span>查看详细</span></a></div><div class="shuoming"><h3>空气源热泵系统</h3><p>是贴上帝ISDN爱上的加速度是贴上帝ISDN爱上的加速度</p></div></li>
+				<c:forEach items="${yewuList }" var="yewu" varStatus="yewuStatus">
+				<li  <c:if test="${yewuStatus.last}">class="endli"</c:if>>
+				<div id="yewu0${yewuStatus.index+1}" class="myewu">
+				<img src="${yewu.imgurl1}"/>
+				<a href="#"><span>查看详细</span></a>
+				</div><div class="shuoming"><h3>${yewu.title}</h3><p>${yewu.remark}</p></div></li>
+				</c:forEach>
+				
+				
 			</ul>
 		</div>
 		<div class="news_jianjie">
@@ -128,12 +133,9 @@
 					</div>
 				</div>
 				<ul class="list">
-					<li><a href="">智能家居九大靠谱势力</a></li>
-					<li><a href="">智能家居从产品战争升级为平台战争</a></li>
-					<li><a href="">大公司将在平台和生态系统控制权苹</a></li>
-					<li><a href="">中小硬件公司和创业者</a></li>
-					<li><a href="">大公司将在平台和生态系统控制权苹</a></li>
-					<li><a href="">中小硬件公司和创业者</a></li>
+					<c:forEach items="${news_hotList }" var="news_hot">
+					<li><a target="_blank"  href="news.shtml?id=${news_hot.id}">${news_hot.title }</a></li>
+					</c:forEach>
 				</ul>
 			</div>
 			<div class="jianjie">

@@ -32,7 +32,7 @@ public class UploadController {
 			subPath="products";
 		}
 		if(type.equals("99")){
-			subPath="remark";
+			subPath="type";
 		}
 		
 		String path = request.getSession().getServletContext()
