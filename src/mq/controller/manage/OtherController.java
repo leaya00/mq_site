@@ -103,4 +103,11 @@ public class OtherController {
 
 		return "redirect:/m_baseInfo.shtml";
 	}
+	@RequestMapping(value = "/m_login")
+	public String login() {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+	
+
+		return "manage/login";
+	}
 }

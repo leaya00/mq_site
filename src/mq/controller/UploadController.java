@@ -37,6 +37,10 @@ public class UploadController {
 		
 		String path = request.getSession().getServletContext()
 				.getRealPath(baseFilePath+"/"+subPath);
+		File tmp=new File(path);
+		if(tmp.exists()==false){
+			tmp.mkdirs();
+		}
 		MultipartFile mfile = multipartRequest.getFile("upload");
 		String file_ture_name = UUID.randomUUID().toString();
 		if (mfile.getSize() <= 1024 * 1024 * 5) {
@@ -79,6 +83,10 @@ public class UploadController {
 		String message = "";
 		String path = request.getSession().getServletContext()
 				.getRealPath(baseFilePath+"/thumbnail");
+		File tmp=new File(path);
+		if(tmp.exists()==false){
+			tmp.mkdirs();
+		}
 		MultipartFile mfile = multipartRequest.getFile("upload");
 		String file_ture_name = UUID.randomUUID().toString();
 		if (mfile.getSize() <= 1024 * 1024 * 5) {
