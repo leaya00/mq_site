@@ -43,11 +43,13 @@
                     <li role="presentation" ><a href="#"
 						link="m_products.shtml?pageNo=1&type=-1">产品</a></li>
 					<li role="presentation" ><a href="#"
-						link="m_baseInfo.shtml">招聘信息</a></li>								
+						link="m_tments.shtml?pageNo=1">招聘信息</a></li>								
 					<li role="presentation" ><a href="#"
 						link="m_serviceInfo.shtml">客服信息</a></li>
 					<li role="presentation" ><a href="#"
-						link="m_baseInfo.shtml">其他</a></li>						
+						link="m_baseInfo.shtml">其他</a></li>	
+						<li role="presentation" ><a href="#"
+						link="m_changepwd_v.shtml">修改密码</a></li>							
 				</ul>
 
 			</div>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import mq.dao.NewsDao;
 import mq.dao.ProductsDao;
+import mq.dao.TmentsDao;
 import mq.dao.TypeDao;
 import mq.interceptor.MustLogin;
 import mq.utils.ValidateCode.ValidateCode;
@@ -236,6 +237,21 @@ public class Indexcontroller {
 			typeDao.updateType(map);
 			return "redirect:/m_type.shtml?type="+type;
 		}
+
+	}
+	//招聘管理
+	@Autowired
+	TmentsDao tmentsDao;
+	@RequestMapping(value = "/m_tments")
+	public ModelAndView tments_List(@RequestParam(value = "pageNo") String page) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<HashMap<String, Object>> tmentsList=tmentsDao.selectTments(page, pageSize);
+		String recordCount=tmentsDao.getTmentsCount();
+		mav.addObject("pageSize", pageSize);
+		mav.addObject("recordCount", recordCount);
+		mav.addObject("tmentsList", tmentsList);
+		mav.setViewName("manage/tmentsList");
+		return mav;
 
 	}
 	//验证码
