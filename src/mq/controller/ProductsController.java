@@ -25,14 +25,46 @@ public class ProductsController {
 	TypeDao typeDao;
 	@Autowired
 	OtherDao otherDao;
-	@RequestMapping(value = "/productsList")
-	public ModelAndView productsList() {
+	static String productsListPagesize = SystemUtils
+			.getSystemPropertie("productsList.pagesize");
+
+	@RequestMapping(value = "/products")
+	public ModelAndView products_xq(@RequestParam(value = "id") String id) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("Products");
-		
-		
+		mav.setViewName("products_xq");
+		return mav;
+	}
+
+	@RequestMapping(value = "/productsList")
+	public ModelAndView productsList(
+			@RequestParam(value = "pageNo") String pageNo,
+			HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		String type = request.getParameter("type");
+		mav.setViewName("products");
+		if (type == null) {
+			// 获取第一个分类id
+			type = typeDao.getTypes_topID("2");
+		}
+		// 产品列表
+		String pageSize = productsListPagesize;
+		ArrayList<HashMap<String, Object>> newsList = productsDao.getProducts(
+				pageNo, pageSize, type);
+		String recordCount = productsDao.getProductsCount(type);
+		mav.addObject("productsList", newsList);
+		// 获取分类
+		HashMap<String, Object> types = typeDao.getTypeOne(type);
+		List<HashMap<String, Object>> typeList = typeDao.getTypes("2");
+		mav.addObject("types", types);
+		mav.addObject("typeList", typeList);
+		// 获取客服信息
+		mav.addObject("serviceInfoList", otherDao.selectAllServiceInfo());
+		// 传url
+		mav.addObject("type", type);
+		mav.addObject("pageSize", pageSize);
+		mav.addObject("recordCount", recordCount);
 		return mav;
 
 	}
-	
+
 }

@@ -31,21 +31,20 @@
             		<div class="title">品牌业务<span>/ Products</span></div>
                     	<div class="left_nav">
                 			<ul>
-                            	<li class="to"><a href="#">智能门禁</a></li>
-                            	<li><a href="#">智慧社区</a></li>
-                                <li><a href="#">节能产品与服务</a></li>
-                                <li><a href="#">3D人脸识别</a></li>
-                                <li><a href="#">碳纤维供暖系统</a></li>
+                				<c:forEach items="${typeList}" var="navType">
+                            		<li <c:if test="${navType.id==types.id}">class="to"</c:if> >
+                            		<a href="productsList.shtml?type=${navType.id}&pageNo=1">${navType.title}</a></li>
+                            	</c:forEach>
+                            	
                     		</ul>
                     	</div>
                 </div>
                 <div class="service">
                 	<div class="title"></div>
                     <div class="service_kf">
-                    	<p>客服1：00000000</p>
-                        <p>客服2：11111111</p>
-                        <p>客服3：22222222</p>
-                        <p>客服4：33333333</p>
+                    	<c:forEach items="${serviceInfoList }" var="serviceInfo">
+                    		<p>${serviceInfo.name}：${serviceInfo.telphone}</p>
+                    	</c:forEach>
                     </div>
                 </div>
             </div>
@@ -53,32 +52,18 @@
             	<div class="title">智能门禁<span>/ Products</span></div>
                 <div class="right_nr">
                 	<div class="Products_by">
-                    	<p>启动安全便捷新生活</p>
-                        <p>米润【智能门神】各项功能设计均立足于人性化，想你所想，为您的生活提供360°的保驾护航。</p>
-                        <p>安全+便捷，我就是米润生活私享家。</p>
+                    	${types.remark }
                     </div>
                     <div class="products_lb">
                     	<ul>
-                        	<li>
-                            	<p class="products_pic"><a href="#"><img src="img/products_pic01.jpg" /></a></p>
-                                <p class="products_mz"><a href="#">标配版</a></p>
-                            </li>
-                            <li>
-                            	<p class="products_pic"><a href="#"><img src="img/products_pic01.jpg" /></a></p>
-                                <p class="products_mz"><a href="#">经济版</a></p>
-                            </li>
-                            <li>
-                            	<p class="products_pic"><a href="#"><img src="img/products_pic01.jpg" /></a></p>
-                                <p class="products_mz"><a href="#">豪华版</a></p>
-                            </li>
-                            <li>
-                            	<p class="products_pic"><a href="#"><img src="img/products_pic01.jpg" /></a></p>
-                                <p class="products_mz"><a href="#">锁体款式</a></p>
-                            </li>
-                            <li>
-                            	<p class="products_pic"><a href="#"><img src="img/products_pic01.jpg" /></a></p>
-                                <p class="products_mz"><a href="#">门禁款式</a></p>
-                            </li>
+                    		<c:forEach items="${productsList }" var="products">
+                    			<li>
+                            	<p class="products_pic"><a href="#"><img src="${products.imgurl2}" /></a></p>
+                                <p class="products_mz"><a href="#">${products.title }</a></p>
+                           	 </li>
+                    		</c:forEach>
+                        	
+                           
                         </ul>
                     </div>
                  </div>
