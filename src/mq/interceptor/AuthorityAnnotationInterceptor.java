@@ -11,16 +11,17 @@ public class AuthorityAnnotationInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		HandlerMethod handler2=(HandlerMethod) handler;
-		MustLogin mustLogin=handler2.getMethodAnnotation(MustLogin.class);
-		if(mustLogin==null){
-			return super.preHandle(request, response, handler);
-		}else{
-			//登录校验
-			response.sendRedirect("index.html");
-			return false;
+		HandlerMethod handler2 = (HandlerMethod) handler;
+		MustLogin mustLogin = handler2.getMethodAnnotation(MustLogin.class);
+		if (mustLogin != null) {
+			// 登录校验
+			if (request.getSession().getAttribute("m_user") == null) {
+				response.sendRedirect("m_login.shtml");
+				return false;
+			}
+
 		}
-		
+		return super.preHandle(request, response, handler);
 	}
 
 }

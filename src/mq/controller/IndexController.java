@@ -1,10 +1,16 @@
 package mq.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import mq.dao.NewsDao;
 import mq.dao.TypeDao;
+import mq.utils.ValidateCode.ValidateCode;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

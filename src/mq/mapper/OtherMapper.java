@@ -20,4 +20,8 @@ public interface OtherMapper {
     public List<HashMap<String,Object>>selectAllBaseInfo();
     public HashMap<String,Object> selectOneBaseInfo(String id);
     public HashMap<String,Object> selectOneBaseInfoByCode(String code);
+    
+    public HashMap<String,Object> selectOneUser(String username);
+    public void updateUser(HashMap<String,Object> map);
+    
 }

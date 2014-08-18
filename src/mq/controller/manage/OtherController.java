@@ -103,11 +103,73 @@ public class OtherController {
 
 		return "redirect:/m_baseInfo.shtml";
 	}
+
 	@RequestMapping(value = "/m_login")
 	public String login() {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-	
-
 		return "manage/login";
+	}
+	@RequestMapping(value = "/m_logout")
+	public String logout(HttpServletRequest request) {
+		request.getSession().removeAttribute("m_user");
+		return "redirect:/m_login.shtml";
+	}
+
+	@RequestMapping(value = "/m_login_v")
+	public ModelAndView login_v(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manage/login");
+		Object code = request.getSession().getAttribute("ValidateCode");
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String msg = "";
+		if (code != null
+				&& request.getParameter("vaildateCode").equalsIgnoreCase(
+						code.toString())) {
+			HashMap<String, Object> userMap = otherDao.selectOneUser(request
+					.getParameter("username"));
+			if (userMap != null) {
+				String pwd = userMap.get("pwd").toString();
+				if (pwd.equalsIgnoreCase(request.getParameter("password"))) {
+					request.getSession().setAttribute("m_user", userMap.get("name"));
+					mav.setViewName("redirect:/m_home.shtml");
+				} else {
+					msg = "用户名或者密码不匹配";
+				}
+			}else{
+				msg = "用户名或者密码不匹配";
+			}
+
+		} else {
+			msg = "验证码错误";
+		}
+
+		mav.addObject("msg", msg);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/m_changepwd")
+	public String changePwd(){
+		return "manage/changePwd";
+	}
+	@RequestMapping(value = "/m_changepwd_v")
+	public ModelAndView changePwd_v(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manage/changePwd");
+		HashMap<String, Object> userMap = otherDao.selectOneUser(request
+				.getParameter("username"));
+		String msg="";
+		if(userMap!=null){
+			String pwd = userMap.get("pwd").toString();
+			if (pwd.equalsIgnoreCase(request.getParameter("pwd1"))) {
+				request.getSession().setAttribute("m_user", userMap.get("name"));
+				otherDao.updateUser(request.getParameter("username"),request.getParameter("pwd2"));
+				msg = "密码修改成功";
+			} else {
+				msg = "密码错误";
+			}
+		}else{
+			msg="密码错误";
+		}
+		mav.addObject("msg", msg);
+		return mav ;
 	}
 }

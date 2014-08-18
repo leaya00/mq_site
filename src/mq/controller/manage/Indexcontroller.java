@@ -1,13 +1,18 @@
 package mq.controller.manage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mq.dao.NewsDao;
 import mq.dao.ProductsDao;
 import mq.dao.TypeDao;
+import mq.interceptor.MustLogin;
+import mq.utils.ValidateCode.ValidateCode;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Conventions;
@@ -231,6 +236,24 @@ public class Indexcontroller {
 			typeDao.updateType(map);
 			return "redirect:/m_type.shtml?type="+type;
 		}
+
+	}
+	//验证码
+	@RequestMapping(value = "/m_vc")
+	public void vc(HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		// 设置响应的类型格式为图片格式
+		response.setContentType("image/jpeg");
+		// 禁止图像缓存。
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Cache-Control", "no-cache");
+		response.setDateHeader("Expires", 0);
+
+		HttpSession session = request.getSession();
+
+		ValidateCode vCode = new ValidateCode(120, 40, 5, 100);
+		session.setAttribute("ValidateCode", vCode.getCode());
+		vCode.write(response.getOutputStream());
 
 	}
 }

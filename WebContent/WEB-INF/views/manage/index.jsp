@@ -27,7 +27,7 @@
 
 			</div>
 			<div class='span1' style="margin-top: 10px;">
-				<button type="button" class="btn btn-danger">注销</button>
+				<button type="button" class="btn btn-danger" onclick="window.location.href='m_logout.shtml'">注销</button>
 			</div>
 		</div>
 		<div class="row-fluid">

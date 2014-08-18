@@ -14,9 +14,11 @@
 	rel="stylesheet">
 <script type="text/javascript"
 	src="<%=basepath%>/js/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript"
+	src="<%=basepath%>/js/artDialog/artDialog.js?skin=default"></script>
 
-<style type='text/css'>
-</style>
+
+<script type="text/javascript" src="<%=basepath%>/js/utils.js"></script>
 
 </head>
 <body>
@@ -29,36 +31,51 @@
 
 		</div>
 		<div class="row">
-			<form action="">
+			<form action="m_login_v.shtml"  id="newsForm" method="post">
 				<table style="margin: auto">
 					<tr>
 						<td>用户名</td>
-						<td><input name="username"></td>
+						<td><input name="username"  id="username" ></td>
 					</tr>
 					<tr>
 						<td>密码</td>
-						<td><input name="password"></td>
+						<td><input name="password"  id="password"  type="password"></td>
 					</tr>
 					<tr>
 						<td>验证码</td>
-						<td><input name="vaildateCode"><a href="#"><img
-							onclick="clickImg(this);" alt="" src="test4.shtml"></a></td>
+						<td><input name="vaildateCode" id="vaildateCode"><a href="#"><img
+								onclick="clickImg(this);" alt="" src="m_vc.shtml"></a></td>
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align: right;"><input
-							type="button" value="登录"></td>
+							type="button" value="登录" onclick="formsubmit();"></td>
 					</tr>
+					<tr><td colspan="2"><b>${msg }</b></td></tr>
 				</table>
 			</form>
+			
 		</div>
 	</div>
 	<script type="text/javascript">
 		clickImg = function(me) {
-			$(me).attr("src", "test4.shtml?t=" + new Date().getTime());
+			$(me).attr("src", "m_vc.shtml?t=" + new Date().getTime());
 		};
-		$(function($) {
+		formsubmit = function() {
 
-		});
+			if ($("#username").val()=="")  {
+				artDialog.tips("用户名必须填写");
+				return;
+			}
+			if ($("#password").val()=="")  {
+				artDialog.tips("密码必须填写");
+				return;
+			}
+			if ($("#vaildateCode").val()=="")  {
+				artDialog.tips("验证码必须填写");
+				return;
+			}
+			$("#newsForm").submit();
+		};
 	</script>
 </body>
 </html>

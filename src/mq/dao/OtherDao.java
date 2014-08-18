@@ -45,4 +45,14 @@ public class OtherDao  {
     public HashMap<String,Object> selectOneBaseInfoByCode(String code){
     	return otherMapper.selectOneBaseInfoByCode(code);
     }
+    
+    public HashMap<String,Object> selectOneUser(String username){
+    	return otherMapper.selectOneUser(username);
+    }
+    public void updateUser(String username ,String pwd){
+    	HashMap<String,Object> map=new HashMap<String, Object>();
+    	map.put("name", username);
+    	map.put("pwd", pwd);
+    	otherMapper.updateUser(map);
+    }
 }
