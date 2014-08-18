@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="about_right">
-            	<div class="title">智能门禁<span>/ Products</span></div>
+            	<div class="title">${types.title}<span>/ Products</span></div>
                 <div class="right_nr">
                 	<div class="Products_by">
                     	${types.remark }
