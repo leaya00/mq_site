@@ -54,7 +54,7 @@
 								</a>
 							</li>
 							<li class="endli">
-								<a href="">
+								<a href="contact.shtml">
 									联系我们
 								</a>
 							</li>
