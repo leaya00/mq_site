@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,10 +17,11 @@ import mq.mapper.TmentsMapper;
 public class TmentsDao  {
 	@Autowired
 	TmentsMapper tmentsMapper;
-	public ArrayList<HashMap<String,Object>>selectTments(String pagestart,String pagesize){
+	public ArrayList<HashMap<String,Object>>selectTments(String pageNo,String pageSize){
+		 int pageStart=(Integer.parseInt(pageNo)-1)*Integer.parseInt(pageSize);
 		HashMap<String,Object> map=new HashMap<String, Object>();
-		map.put("pagestart", pagestart);
-		map.put("pagesize", pagesize);
+		map.put("pagestart", pageStart);
+		map.put("pagesize",  pageSize);
 		return tmentsMapper.selectTments(map);
 	}
 	public String getTmentsCount(){

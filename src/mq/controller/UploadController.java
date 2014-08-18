@@ -31,6 +31,9 @@ public class UploadController {
 		if(type.equals("2")){
 			subPath="products";
 		}
+		if(type.equals("3")){
+			subPath="tments";
+		}
 		if(type.equals("99")){
 			subPath="type";
 		}

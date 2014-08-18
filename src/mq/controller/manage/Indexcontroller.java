@@ -254,6 +254,42 @@ public class Indexcontroller {
 		return mav;
 
 	}
+	@RequestMapping(value = "/m_tmentsEdit")
+	public ModelAndView newsTments(@RequestParam(value = "id") String id) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manage/tmentsEdit");
+		mav.addObject("id", id);
+		HashMap<String,Object> tments=new HashMap<String, Object>();
+		tments.put("xh", 0);
+		if (id.equals("-1") ==false) {
+			tments=tmentsDao.selectOneTment(id);
+		}
+		mav.addObject("tments",tments);
+		return mav;
+
+	}
+	@RequestMapping(value = "/m_tmentsSave")
+	public String tmentsSave(@RequestParam(value = "id") String id,
+			HttpServletRequest request) {
+		HashMap<String,Object> map=new HashMap<String, Object>();
+		map.put("title", request.getParameter("title"));
+		map.put("xh", request.getParameter("xh")==null?0:request.getParameter("xh"));
+		map.put("content", request.getParameter("content"));
+		map.put("id", id);
+		if (id.equals("-1") ) {
+			//insert
+			tmentsDao.insertTment(map);
+			
+		} else {
+			if (request.getParameter("del") == null) {
+				tmentsDao.updateTment(map);
+			} else {
+				tmentsDao.deleteTment(id);
+			}
+			
+		}
+		return "redirect:/m_tments.shtml?pageNo=1";
+	}
 	//验证码
 	@RequestMapping(value = "/m_vc")
 	public void vc(HttpServletRequest request, HttpServletResponse response)
