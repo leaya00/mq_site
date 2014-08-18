@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mq.mapper.TmentsMapper">
+
+	<select id="selectTments" resultType="map" parameterType="map">
+		select * from tment order by xh desc   limit ${pagestart},${pagesize}
+	</select>
+	<select id="getTmentsCount" resultType="String" >
+		select count(1) from tment 
+	</select>
+	<select id="selectOneTment" resultType="map" parameterType="String">
+		select * from tment where id=#{id}
+	</select>
+	<insert id="insertTment" parameterType="map">
+		insert into tment (title,content,xh) values(#{title},#{content},#{xh})
+	</insert>
+	
+		<update id="updateTment" parameterType="map">
+		update tment set title=#{title},content=#{content},xh=#{xh}		 	
+		 where id = #{id}
+	</update>
+	<delete id="deleteTment" parameterType="String">
+		delete from tment where id=#{id}
+	</delete>
+	<select id="getPreTmentId" parameterType="String" resultType="map">
+		 select id,title from tment where id&lt;#{id} order by id desc limit 1;
+      
+	</select>
+	<select id="getNextTmentId" parameterType="String" resultType="map">
+      select id,title from tment where id&gt;#{id} order by id limit 1;
+	</select>
+</mapper>

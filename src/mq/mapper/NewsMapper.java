@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface NewsMapper {
-    public String getTest(int id);
     public void insertNews(HashMap<String,Object> map);
     public ArrayList<HashMap<String,Object>>  getNews(HashMap<String,Object> map);
     public String getNewsCount(String typesql);

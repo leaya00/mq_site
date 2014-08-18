@@ -4,9 +4,7 @@
 
 <mapper namespace="mq.mapper.NewsMapper">
 
-	<select id="getTest" resultType="String" parameterType="int">
-		select txt from t1 where id=#{id} 
-	</select>
+
 	<select id="getNewsOne" resultType="map" parameterType="String">
 		select * from news where id=#{id}
 	</select>
