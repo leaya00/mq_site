@@ -49,7 +49,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="">
+								<a href="mentsList.shtml?pageNo=1">
 									加入米润
 								</a>
 							</li>
