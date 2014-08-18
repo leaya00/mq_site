@@ -19,7 +19,7 @@ CKEDITOR.editorConfig = function(config) {
 
        ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
 
-       ['Link', 'Unlink', 'Anchor'],
+       ['Link', 'Unlink', 'Anchor','NumberedList','BulletedList'],
 
        ['Styles', 'Format', 'Font', 'FontSize', 'TextColor', 'BGColor']
 
