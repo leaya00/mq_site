@@ -23,7 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class OtherController {
 	@Autowired
 	OtherDao otherDao;
-
+	@MustLogin
 	@RequestMapping(value = "/m_serviceInfo")
 	public ModelAndView serviceInfoList() {
 		ModelAndView mav = new ModelAndView();
@@ -32,7 +32,7 @@ public class OtherController {
 		return mav;
 
 	}
-
+	@MustLogin
 	@RequestMapping(value = "/m_serviceInfoEdit")
 	public ModelAndView serviceInfoEdit(@RequestParam(value = "id") String id) {
 		ModelAndView mav = new ModelAndView();
@@ -46,7 +46,7 @@ public class OtherController {
 		return mav;
 
 	}
-
+	@MustLogin
 	@RequestMapping(value = "/m_serviceInfoSave")
 	public String serviceInfoSave(@RequestParam(value = "id") String id,
 			HttpServletRequest request) {
@@ -71,6 +71,7 @@ public class OtherController {
 	}
 
 	// 基本信息
+	@MustLogin
 	@RequestMapping(value = "/m_baseInfo")
 	public ModelAndView baseInfoList() {
 		ModelAndView mav = new ModelAndView();
@@ -79,7 +80,7 @@ public class OtherController {
 		return mav;
 
 	}
-
+	@MustLogin
 	@RequestMapping(value = "/m_baseInfoEdit")
 	public ModelAndView baseInfoEdit(@RequestParam(value = "id") String id) {
 		ModelAndView mav = new ModelAndView();
@@ -91,7 +92,7 @@ public class OtherController {
 		return mav;
 
 	}
-
+	@MustLogin
 	@RequestMapping(value = "/m_baseInfoSave")
 	public String baseInfoSave(@RequestParam(value = "id") String id,
 			HttpServletRequest request) {
@@ -105,7 +106,11 @@ public class OtherController {
 	}
 
 	@RequestMapping(value = "/m_login")
-	public String login() {
+	public String login(HttpServletRequest request) {
+		if(request.getSession().getAttribute("m_user")!=null){
+			return "redirect:/m_home.shtml";			
+		}
+
 		return "manage/login";
 	}
 	@RequestMapping(value = "/m_logout")
@@ -145,11 +150,12 @@ public class OtherController {
 		mav.addObject("msg", msg);
 		return mav;
 	}
-	
+	@MustLogin
 	@RequestMapping(value = "/m_changepwd")
 	public String changePwd(){
 		return "manage/changePwd";
 	}
+	@MustLogin
 	@RequestMapping(value = "/m_changepwd_v")
 	public ModelAndView changePwd_v(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();

@@ -15,7 +15,7 @@
 					<div class="topMenu">
 						<ul>
 							<li>
-								<a href="">
+								<a target="_blank"  href="m_login.shtml">
 									会员中心
 								</a>
 							</li>

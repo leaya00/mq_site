@@ -31,19 +31,19 @@
 
 		</div>
 		<div class="row">
-			<form action="m_login_v.shtml"  id="newsForm" method="post">
-				<table style="margin: auto">
+			<form action="m_login_v.shtml"  id="newsForm" method="post" >
+				<table style="margin: auto;">
 					<tr>
 						<td>用户名</td>
-						<td><input name="username"  id="username" ></td>
+						<td><input name="username"  id="username" type="text"></td>
 					</tr>
 					<tr>
 						<td>密码</td>
-						<td><input name="password"  id="password"  type="password"></td>
+						<td><input name="password"   id="password"  type="password"></td>
 					</tr>
 					<tr>
 						<td>验证码</td>
-						<td><input name="vaildateCode" id="vaildateCode"><a href="#"><img
+						<td><input name="vaildateCode" id="vaildateCode" type="text"><a href="#"><img
 								onclick="clickImg(this);" alt="" src="m_vc.shtml"></a></td>
 					</tr>
 					<tr>

@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Indexcontroller {
+	@MustLogin
 	@RequestMapping(value = "/m_home")
 	public String home() {
 		return "manage/index";
@@ -33,7 +34,7 @@ public class Indexcontroller {
 	//新闻管理
 	@Autowired
 	NewsDao newsDao;
-	
+	@MustLogin
 	@RequestMapping(value = "/m_news")
 	public ModelAndView news_List(@RequestParam(value = "pageNo") String page,@RequestParam(value = "type") String type) {
 		ModelAndView mav = new ModelAndView();
@@ -49,7 +50,7 @@ public class Indexcontroller {
 
 	}
 
-	
+	@MustLogin
 	@RequestMapping(value = "/m_newsEdit")
 	public ModelAndView newsEdit(@RequestParam(value = "id") String id,@RequestParam(value = "type") String type) {
 		ModelAndView mav = new ModelAndView();
@@ -66,7 +67,7 @@ public class Indexcontroller {
 		return mav;
 
 	}
-
+	@MustLogin
 	@RequestMapping(value = "/m_newsSave")
 	public String newsSave(@RequestParam(value = "id") String id,
 			HttpServletRequest request) {
@@ -96,6 +97,8 @@ public class Indexcontroller {
 	//产品管理
 	@Autowired
 	ProductsDao productsDao;
+	
+	@MustLogin
 	@RequestMapping(value = "/m_products")
 	public ModelAndView products_List(@RequestParam(value = "pageNo") String page,@RequestParam(value = "type") String type) {
 		ModelAndView mav = new ModelAndView();
@@ -110,6 +113,7 @@ public class Indexcontroller {
 		return mav;
 
 	}
+	@MustLogin
 	@RequestMapping(value = "/m_productsEdit")
 	public ModelAndView productsEdit(@RequestParam(value = "id") String id,@RequestParam(value = "type") String type) {
 		ModelAndView mav = new ModelAndView();
@@ -129,6 +133,7 @@ public class Indexcontroller {
 		return mav;
 
 	}
+	@MustLogin
 	@Transactional
 	@RequestMapping(value = "/m_productsSave")
 	public String productsSave(@RequestParam(value = "id") String id,
@@ -159,6 +164,7 @@ public class Indexcontroller {
 
 	}
 	//产品详情
+	@MustLogin
 	@RequestMapping(value = "/m_productdetailEdit")
 	public ModelAndView productdetailEdit(@RequestParam(value = "id") String id,@RequestParam(value = "type") String type,@RequestParam(value = "productid") String productid) {
 		ModelAndView mav = new ModelAndView();
@@ -176,6 +182,7 @@ public class Indexcontroller {
 		return mav;
 
 	}
+	@MustLogin
 	@RequestMapping(value = "/m_productdetailSave")
 	public String productdetailSave(@RequestParam(value = "id") String id,
 			HttpServletRequest request) {
@@ -200,6 +207,7 @@ public class Indexcontroller {
 	//分类管理
 	@Autowired
 	TypeDao typeDao;
+	@MustLogin
 	@RequestMapping(value = "/m_type")
 	public ModelAndView type_List(@RequestParam(value = "type") String type) {
 		ModelAndView mav = new ModelAndView();
@@ -209,6 +217,7 @@ public class Indexcontroller {
 		return mav;
 
 	}
+	@MustLogin
 	@RequestMapping(value = "/m_typeEdit")
 	public ModelAndView typeEdit(@RequestParam(value = "type") String type,@RequestParam(value = "id") String id) {
 		ModelAndView mav = new ModelAndView();
@@ -222,6 +231,7 @@ public class Indexcontroller {
 		return mav;
 
 	}
+	@MustLogin
 	@RequestMapping(value = "/m_typeSave")
 	public String typeSave(@RequestParam(value = "type") String type,@RequestParam(value = "id") String id,
 			HttpServletRequest request) {
@@ -246,6 +256,8 @@ public class Indexcontroller {
 	//招聘管理
 	@Autowired
 	TmentsDao tmentsDao;
+	
+	@MustLogin
 	@RequestMapping(value = "/m_tments")
 	public ModelAndView tments_List(@RequestParam(value = "pageNo") String page) {
 		ModelAndView mav = new ModelAndView();
@@ -258,6 +270,7 @@ public class Indexcontroller {
 		return mav;
 
 	}
+	@MustLogin
 	@RequestMapping(value = "/m_tmentsEdit")
 	public ModelAndView newsTments(@RequestParam(value = "id") String id) {
 		ModelAndView mav = new ModelAndView();
@@ -272,6 +285,7 @@ public class Indexcontroller {
 		return mav;
 
 	}
+	@MustLogin
 	@RequestMapping(value = "/m_tmentsSave")
 	public String tmentsSave(@RequestParam(value = "id") String id,
 			HttpServletRequest request) {
@@ -295,6 +309,7 @@ public class Indexcontroller {
 		return "redirect:/m_tments.shtml?pageNo=1";
 	}
 	//验证码
+	
 	@RequestMapping(value = "/m_vc")
 	public void vc(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
