@@ -44,6 +44,7 @@ public class NewsController {
 		//获取top5
 		mav.addObject("top5List", newsDao.getNews("1", "5", news.get("type").toString()));
 		
+		mav.addObject("foot_hottel", otherDao.selectOneBaseInfoByCode("foot_hottel"));
 		return mav;
 
 	}
@@ -68,7 +69,7 @@ public class NewsController {
 		mav.addObject("hot_telphone", otherDao.selectOneBaseInfoByCode("hot_telphone"));
 		mav.addObject("hot_linkman", otherDao.selectOneBaseInfoByCode("hot_linkman"));
 		mav.addObject("hot_email", otherDao.selectOneBaseInfoByCode("hot_email"));
-
+		mav.addObject("foot_hottel", otherDao.selectOneBaseInfoByCode("foot_hottel"));
 		//获取新闻分类
 		HashMap<String, Object> types = typeDao.getTypeOne(type);
 		List<HashMap<String, Object>> typeList = typeDao.getTypes("1");

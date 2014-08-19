@@ -15,7 +15,9 @@
 <script type="text/javascript"
 	src="<%=basepath%>/js/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="<%=basepath%>/js/artDialog/artDialog.js?skin=default"></script>
-
+<script type="text/javascript"
+	src="<%=basepath%>/js/ckeditor/ckeditor.js"></script>
+<script src="<%=basepath%>/js/ckeditor/config.js" type="text/javascript"></script>
 
 <script type="text/javascript"
 	src="<%=basepath%>/js/utils.js"></script>	
@@ -40,16 +42,22 @@
 				<label for="value" class="col-sm-2">内容</label>
 				<div class="col-sm-10">
 					<textarea rows="20" class="form-control" style="width: 500px;"
-						name="value" id="value">${baseInfo.value}</textarea>
+						name="value" id="mycontent">${baseInfo.value}</textarea>
+						<script>
+					
+						/*CKEDITOR
+								.replace(
+										'mycontent',
+										{
+											toolbar:"Define",
+											language : 'zh-cn',
+											image_previewText : ' ',
+											filebrowserUploadUrl : 'ckUploadImage.shtml?type=99'
+										});*/
+					</script>
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="xh" class="col-sm-2">排序</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="xh"
-						name="xh" style="width: 400px;" value="${baseInfo.xh}">
-				</div>
-			</div>
+			
 			
 			</div>
 			<div class="form-group">
@@ -64,10 +72,6 @@
 	<script type="text/javascript">
 		saveNews = function() {
 			
-			if(CheckINT($("#xh").val())==false){
-				artDialog.tips("序号必须是正整数");
-				return;
-			}
 			
 			$("#newsForm").submit();
 		};

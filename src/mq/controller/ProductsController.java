@@ -54,6 +54,7 @@ public class ProductsController {
 		mav.addObject("pageSize", "1");
 		mav.addObject("recordCount", recordCount);
 		mav.addObject("id", id);
+		mav.addObject("foot_hottel", otherDao.selectOneBaseInfoByCode("foot_hottel"));
 		return mav;
 	}
 
@@ -85,6 +86,7 @@ public class ProductsController {
 		mav.addObject("type", type);
 		mav.addObject("pageSize", pageSize);
 		mav.addObject("recordCount", recordCount);
+		mav.addObject("foot_hottel", otherDao.selectOneBaseInfoByCode("foot_hottel"));
 		return mav;
 
 	}

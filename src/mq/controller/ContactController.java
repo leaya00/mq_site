@@ -37,6 +37,7 @@ public class ContactController {
 				otherDao.selectOneBaseInfoByCode("hot_linkman"));
 		mav.addObject("hot_email",
 				otherDao.selectOneBaseInfoByCode("hot_email"));
+		mav.addObject("foot_hottel", otherDao.selectOneBaseInfoByCode("foot_hottel"));
 		return mav;
 
 	}

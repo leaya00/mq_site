@@ -27,7 +27,7 @@
 				<td width="10%">代码</td>
 				<td width="30%">含义</td>
 				<td width="30%">内容</td>
-				<td width="10%">排序</td>
+				
 				<td width="20%">操作</td>
 			</tr>
 		</thead>
@@ -37,7 +37,7 @@
 					<td>${baseInfo.code}</td>
 					<td>${baseInfo.remark}</td>
 					<td style="word-break: keep-all;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">${baseInfo.value}</td>
-					<td>${baseInfo.xh}</td>
+					
 					<td><button type="button" class="btn btn-info" style="display: none;"
 							onclick="delInfo(${baseInfo.id});">删除</button>
 						<button type="button" class="btn btn-info"

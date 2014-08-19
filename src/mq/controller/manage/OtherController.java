@@ -98,7 +98,6 @@ public class OtherController {
 			HttpServletRequest request) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("value", request.getParameter("value"));
-		map.put("xh", request.getParameter("xh"));
 		map.put("id", id);
 		otherDao.updateBaseInfo(map);
 

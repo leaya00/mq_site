@@ -26,7 +26,7 @@ public class TmentController {
 	@Autowired
 	OtherDao otherDao;
 	@RequestMapping(value = "/mentsList")
-	public ModelAndView news(@RequestParam(value = "pageNo") String pageNo,HttpServletRequest request) {
+	public ModelAndView mentsList(@RequestParam(value = "pageNo") String pageNo,HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		
 		//列表页显示条数
@@ -40,12 +40,12 @@ public class TmentController {
 		//传url
 		mav.addObject("pageSize",pageSize);
 		mav.addObject("recordCount",recordCount);
-		
+		mav.addObject("foot_hottel", otherDao.selectOneBaseInfoByCode("foot_hottel"));
 		return mav;
 
 	}
 	@RequestMapping(value = "/tments")
-	public ModelAndView news_xq(@RequestParam(value = "id") String id) {
+	public ModelAndView tments_xq(@RequestParam(value = "id") String id) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("tment_xq");
 		HashMap<String, Object> tments=tmentsDao.selectOneTment(id) ;
@@ -57,7 +57,7 @@ public class TmentController {
 		//获取客服信息
 		mav.addObject("serviceInfoList", otherDao.selectAllServiceInfo());
 		
-		
+		mav.addObject("foot_hottel", otherDao.selectOneBaseInfoByCode("foot_hottel"));
 		return mav;
 
 	}

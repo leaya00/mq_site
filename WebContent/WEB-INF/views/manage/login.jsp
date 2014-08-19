@@ -47,8 +47,10 @@
 								onclick="clickImg(this);" alt="" src="m_vc.shtml"></a></td>
 					</tr>
 					<tr>
-						<td colspan="2" style="text-align: right;"><input
-							type="button" value="登录" onclick="formsubmit();"></td>
+						<td colspan="2" style="text-align: right;">
+						<input 
+							type="submit" value="登录" onclick="formsubmit();" >
+							</td>
 					</tr>
 					<tr><td colspan="2"><b>${msg }</b></td></tr>
 				</table>

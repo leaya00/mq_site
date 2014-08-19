@@ -34,7 +34,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="">
+								<a href="about.shtml">
 									公司概况
 								</a>
 							</li>

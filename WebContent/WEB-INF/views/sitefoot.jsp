@@ -4,7 +4,7 @@
 				<div class="footerlogo"><a href=""></a></div>
 				<div class="banquan">
 					<p>Copyright © 2013-2014 www.mirun.com Rights Reserved</p>
-					<p>重庆米润科技有限公司 保留一切权利 客服热线：400-8008810，023-9999292</p>
+					<p>重庆米润科技有限公司 保留一切权利 客服热线：${foot_hottel.value }</p>
 					<p>渝ICP备93420394号 技术支持：<a href="http://www.mfanweb.com" target="_blank">梦帆互动</a></p>
 				</div>
 				<div class="fenxiang">

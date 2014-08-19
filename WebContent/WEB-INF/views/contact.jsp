@@ -34,10 +34,10 @@
 				</div>
 				<div class="left_nav">
 					<ul>
-						<li><a href="#">公司概况</a></li>
-						<li><a href="#">品牌业务</a></li>
-						<li><a href="#">新闻资讯</a></li>
-						<li><a href="#">加入米润</a></li>
+						<li><a href="about.shtml">公司概况</a></li>
+						<li><a href="productsList.shtml?pageNo=1">品牌业务</a></li>
+						<li><a href="newsList.shtml?pageNo=1">新闻资讯</a></li>
+						<li><a href="mentsList.shtml?pageNo=1">加入米润</a></li>
 						<li class="to"><a href="#">联系我们</a></li>
 					</ul>
 				</div>

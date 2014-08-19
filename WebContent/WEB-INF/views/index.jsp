@@ -119,11 +119,9 @@
 			</div>
 			<div class="jianjie">
 				<div class="title">重庆米润科技有限公司</div>
-				<div class="biaoyu">我们坚持“简单就是智慧”</div>
+				<div class="biaoyu">${index_about_biaoyu.value }</div>
 				<div class="jianjie_text">
-					<p>重庆米润科技有限公司,成立于2014年3月，注册资金300万元,公司位于渝北区黄山大道中段55号附2号（麒麟D座）</p>
-					<p>集产、学、研为一体科技型企业，公司现有职工56人，大专以上学历人员48人，外聘专家教授2人。公司主营业务：节能技术，与节能服务。</p>
-					<p>公司与重庆大学、解放军后勤工程学院等院校已签订长期产学研合作模式，在智能家居产品开发领域实现技术共享，并且在检测设备、实验仪器、项目应用等方面实现资源共享。</p>
+					${index_about.value }
 					
 				</div>
 			</div>

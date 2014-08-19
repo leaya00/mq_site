@@ -2,38 +2,42 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="/WEB-INF/classes/mq/utils/Tag/page1.tld" prefix="w"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>加入米润</title>
+		<title>公司概况</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery1.42.min.js"></script>
 		<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
-		<script type="text/javascript">
-			$(function($) {
-				setTitleMenu(4);
-			});
-		</script>
+<script type="text/javascript">
+	$(function($) {
+		setTitleMenu(1);
+	});
+</script>
 	</head>
 
 	<body>
 		<!--top-->
 		<%@ include file="sitehead.jsp"%>
-        <div class="clear_both"></div>
 		<div class="about_banner"><img src="img/about_banenr.jpg"/></div>
 		<div class="noticeB">
 		</div>
         <div class="about">
         	<div class="about_left">
             	<div class="left_top">
-            		<div class="title">加入米润<span>/ Recruitment</span></div>
+            		<div class="title">公司概况<span>/ About us</span></div>
                     	<div class="left_nav">
                 			<ul>
-                            	<li class="to"><a href="mentsList.shtml?pageNo=1">米润招聘</a></li>
-                            	<!-- <li><a href="#">投资米润</a></li> -->
-                                <li><a href="about.shtml">了解米润</a></li>
-                            	<li><a href="contact.shtml">联系我们</a></li>
+                    			<li class="to"><a href="#">公司概况</a></li>
+                                <li><a href="#">董事长辞职</a></li>
+                            	<li><a href="#">组织结构</a></li>
+                            	<li><a href="#">荣誉与资质</a></li>
+                            	<li><a href="#">文化理念</a></li>
+                            	<li><a href="#">核心价值观</a></li>
+                            	<li><a href="#">公司宣传片</a></li>
+                            	<li><a href="#">企业资质荣誉</a></li>
                     		</ul>
                     	</div>
                 </div>
@@ -44,28 +48,24 @@
                     		<p>${serviceInfo.name}：${serviceInfo.telphone}</p>
                     	</c:forEach>
                     </div>
+                    <div class="service_kf">
+                    	<p>热线：${hot_telphone.value}</p>
+                        <p>邮箱：${hot_email.value }</p>
+                        <p>联系人：${ hot_linkman.value}</p>
+                    </div>
                 </div>
             </div>
             <div class="about_right">
-            	<div class="title">加入米润<span>/ Recruitment</span></div>
+            	<div class="title">公司概况<span>/ About us</span></div>
                 <div class="right_nr">
-                	<div class="tment_title">${tments.title }</div>
-                    ${tments.content }
-                   <div class="tment_fanye">
-                   		<ul>
-                   				<c:if test="${!empty pretments}">
-                   				<li class="tment_shang"><a href="tments.shtml?id=${pretments.id }">上一职位：${pretments.title}</a></li>
-                   			</c:if>
-                        	<c:if test="${!empty nextments}">
-                   				<li class="tment_xia"><a href="tments.shtml?id=${nextments.id }">下一职位：${nextments.title}</a></li>
-                   			</c:if>
-                        </ul>
-                   </div>
-                 </div>
+                	<div class="about_js">
+                		${about.value }
+                    </div>
+                    <div class="aoubt_right_img"><img src="img/about_right_img.jpg" width="732" height="113" /></div>
                 </div>
             </div>
         </div>
 	</div>
 
 
-	<%@ include file="sitefoot.jsp"%>
+		<%@ include file="sitefoot.jsp"%>

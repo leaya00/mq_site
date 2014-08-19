@@ -322,7 +322,7 @@ public class Indexcontroller {
 
 		HttpSession session = request.getSession();
 
-		ValidateCode vCode = new ValidateCode(120, 40, 5, 100);
+		ValidateCode vCode = new ValidateCode(120, 40, 5, 10);
 		session.setAttribute("ValidateCode", vCode.getCode());
 		vCode.write(response.getOutputStream());
 
