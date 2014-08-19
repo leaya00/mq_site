@@ -29,9 +29,31 @@ public class ProductsController {
 			.getSystemPropertie("productsList.pagesize");
 
 	@RequestMapping(value = "/products")
-	public ModelAndView products_xq(@RequestParam(value = "id") String id) {
+	public ModelAndView products_xq(@RequestParam(value = "pageNo") String pageNo,@RequestParam(value = "id") String id,
+			HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("products_xq");
+		// 产品信息
+		HashMap<String, Object> products = productsDao.getProductsOne(id);
+		String type = products.get("type").toString();
+		HashMap<String,Object> productdetail = productsDao.getProductdetail(
+				pageNo,  id);
+		String recordCount = productsDao.getProductdetailCount(id);
+	
+		mav.addObject("products", products);
+		mav.addObject("productdetail", productdetail);
+
+		// 获取分类
+		HashMap<String, Object> types = typeDao.getTypeOne(type);
+		List<HashMap<String, Object>> typeList = typeDao.getTypes("2");
+		mav.addObject("types", types);
+		mav.addObject("typeList", typeList);
+		// 获取客服信息
+		mav.addObject("serviceInfoList", otherDao.selectAllServiceInfo());
+		// url
+		mav.addObject("pageSize", "1");
+		mav.addObject("recordCount", recordCount);
+		mav.addObject("id", id);
 		return mav;
 	}
 

@@ -111,13 +111,15 @@ public class Indexcontroller {
 
 	}
 	@RequestMapping(value = "/m_productsEdit")
-	public ModelAndView productsEdit(@RequestParam(value = "id") String id) {
+	public ModelAndView productsEdit(@RequestParam(value = "id") String id,@RequestParam(value = "type") String type) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("manage/productsEdit");
 		mav.addObject("id", id);
+		
 		mav.addObject("typeList", typeDao.getTypes("2"));
 		HashMap<String,Object> products=new HashMap<String, Object>();
 		products.put("xh", 0);
+		products.put("type", type);
 		if (id.equals("-1") ==false) {
 			products=productsDao.getProductsOne(id);
 		}
@@ -157,10 +159,11 @@ public class Indexcontroller {
 	}
 	//产品详情
 	@RequestMapping(value = "/m_productdetailEdit")
-	public ModelAndView productdetailEdit(@RequestParam(value = "id") String id,@RequestParam(value = "productid") String productid) {
+	public ModelAndView productdetailEdit(@RequestParam(value = "id") String id,@RequestParam(value = "type") String type,@RequestParam(value = "productid") String productid) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("manage/productdetailEdit");
 		mav.addObject("id", id);
+		mav.addObject("type", type);
 		mav.addObject("productid", productid);
 		HashMap<String,Object> productdetail=new HashMap<String, Object>();
 		productdetail.put("productid", productid);
@@ -191,7 +194,7 @@ public class Indexcontroller {
 			}
 			
 		}
-		return "redirect:/m_productsEdit.shtml?id="+request.getParameter("productid");
+		return "redirect:/m_productsEdit.shtml?id="+request.getParameter("productid")+"&type="+request.getParameter("type");
 	}
 	//分类管理
 	@Autowired

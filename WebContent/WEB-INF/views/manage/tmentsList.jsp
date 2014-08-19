@@ -35,7 +35,7 @@
 			<c:forEach items="${tmentsList}" var="tments">
 				<tr>
 					<td>${tments.id}</td>
-					<td><a target="_blank" href="news.shtml?id=${tments.id}">${tments.title}</a></td>
+					<td><a target="_blank" href="tments.shtml?id=${tments.id}">${tments.title}</a></td>
 					
 					<td>${tments.xh}</td>
 					<td><button type="button" class="btn btn-info"

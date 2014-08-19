@@ -164,11 +164,11 @@
 	</div>
 	<script type="text/javascript">
 		editInfo=function(id){
-			window.location.href="m_productdetailEdit.shtml?productid=${id}&id="+id;
+			window.location.href="m_productdetailEdit.shtml?type=${products.type}&productid=${id}&id="+id;
 		};
 		delInfo=function(id){
 			artDialog.confirm("是否删除id为"+id+"的数据",function(){
-				window.location.href="m_productdetailSave.shtml?&productid=${id}&del=1&id="+id;
+				window.location.href="m_productdetailSave.shtml?type=${products.type}&productid=${id}&del=1&id="+id;
 			});
 		};
 		saveNews = function() {

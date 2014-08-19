@@ -63,7 +63,7 @@
 	<button type="button" class="btn btn-info" onclick="editInfo(-1);">新建</button>
 	<script type="text/javascript">
 		editInfo=function(id){
-			window.location.href="m_productsEdit.shtml?id="+id;
+			window.location.href="m_productsEdit.shtml?type=${type}&id="+id;
 		};
 		delInfo=function(id){
 			artDialog.confirm("是否删除id为"+id+"的数据",function(){

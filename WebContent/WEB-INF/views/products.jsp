@@ -59,7 +59,7 @@
                     		<c:forEach items="${productsList }" var="products">
                     			<li>
                             	<p class="products_pic"><a href="#"><img src="${products.imgurl2}" /></a></p>
-                                <p class="products_mz"><a href="#">${products.title }</a></p>
+                                <p class="products_mz"><a target="_blank" href="products.shtml?pageNo=1&id=${products.id}">${products.title }</a></p>
                            	 </li>
                     		</c:forEach>
                         	
@@ -67,6 +67,22 @@
                         </ul>
                     </div>
                  </div>
+                 <!--分页-->
+			        <div class="msearch_fenye">
+			          <table width="654" style="" border="0" cellpadding="0" cellspacing="0">
+			            <tr>
+			              <td align="center" height="32" valign="middle"><table border="0" cellpadding="0" cellspacing="0">
+			                  <tr>
+			                    <td>
+									<w:page pageSize="${pageSize}"
+									url="productsList.shtml?type=${type}" recordCount="${recordCount}" />
+								</td>
+			                  </tr>
+			                </table></td>
+			            </tr>
+			          </table>
+			        </div>
+			<!--分页 end-->
                 </div>
             </div>
         </div>

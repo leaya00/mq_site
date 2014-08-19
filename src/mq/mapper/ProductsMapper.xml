@@ -46,10 +46,10 @@
 	<select id="getProductdetailByProductid" resultType="map" parameterType="String">
 		select * from productdetail where productid=#{productid} order by xh desc
 	</select>
-	<select id="getProductdetail" resultType="String" parameterType="map">
-		select id from productdetail where productid=${productid} order by xh desc limit ${pagestart},${pagesize}
+	<select id="getProductdetail" resultType="map" parameterType="map">
+		select * from productdetail where productid=#{productid} order by xh desc limit ${pagestart},1
 	</select>
 	<select id="getProductdetailCount" resultType="String" parameterType="String">
-		select count(1) from productdetail where productid=${productid}
+		select count(1) from productdetail where productid=#{productid}
 	</select>
 </mapper>

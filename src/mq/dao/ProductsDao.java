@@ -62,11 +62,10 @@ public class ProductsDao  {
     public HashMap<String,Object> getProductdetailOne(String id){
     	return productsMapper.getProductdetailOne(id);
     }
-    public ArrayList<String> getProductdetail(String pageNo,String pageSize,String productid){
-    	int pageStart=(Integer.parseInt(pageNo)-1)*Integer.parseInt(pageSize);
+    public HashMap<String,Object> getProductdetail(String pageNo,String productid){
+    	int pageStart=(Integer.parseInt(pageNo)-1);
 		 HashMap<String,Object> map=new HashMap<String, Object>();
 		 map.put("pagestart", pageStart);
-		 map.put("pagesize", pageSize);
 		 map.put("productid", productid);
 		 return productsMapper.getProductdetail(map);
     }
