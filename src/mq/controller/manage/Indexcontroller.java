@@ -140,6 +140,7 @@ public class Indexcontroller {
 		map.put("remark", request.getParameter("remark"));
 		map.put("imgurl1", request.getParameter("imgurl1"));
 		map.put("imgurl2", request.getParameter("imgurl2"));
+		map.put("isindextop", request.getParameter("isindextop"));
 		map.put("id", id);
 		if (id.equals("-1") ) {
 			//insert

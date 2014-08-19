@@ -25,4 +25,5 @@ public interface ProductsMapper {
     public HashMap<String,Object> getProductdetail(HashMap<String,Object> map);
     public String getProductdetailCount(String productid);
     public  ArrayList<HashMap<String,Object>>getProductdetailByProductid(String productid);
+    public  ArrayList<HashMap<String,Object>>getProductsIndexTop();
 }

@@ -75,4 +75,7 @@ public class ProductsDao  {
     public  ArrayList<HashMap<String,Object>>getProductdetailByProductid(String productid){
     	return productsMapper.getProductdetailByProductid(productid);
     }
+    public  ArrayList<HashMap<String,Object>>getProductsIndexTop(){
+    	return productsMapper.getProductsIndexTop();
+    }
 }

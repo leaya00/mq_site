@@ -66,38 +66,17 @@
 					<a href="javascript:void(0)" class="next"></a>
 					<div class="scrollWrap">
 							<ul class="picList">
+									<c:forEach items="${productsIndexTop }" var="pindextop">
 									<li>
-										<h3><a href="">智能门禁案例</a></h3>
-										<div class="left_text">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</div>
+										<h3><a target="_blank" href="products.shtml?pageNo=1&id=${pindextop.id}">${pindextop.title }</a></h3>
+										<div class="left_text">${pindextop.remark }</div>
 										<div class="right_img">
-											<a href=""><img src="img/anli_img01.png"/></a>
-											<a href="" class="more">查看详细</a>
+											<a target="_blank" href="products.shtml?pageNo=1&id=${pindextop.id}"><img src="${pindextop.imgurl1 }"/></a>
+											<a target="_blank" href="products.shtml?pageNo=1&id=${pindextop.id}" class="more">查看详细</a>
 										</div>
 								   </li>
-								   <li>
-										<h3><a href="">智能社区案例</a></h3>
-										<div class="left_text">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</div>
-										<div class="right_img">
-											<a href=""><img src="img/anli_img02.png"/></a>
-											<a href="" class="more">查看详细</a>
-										</div>
-								   </li>
-								   <li>
-										<h3><a href="">节能减排案例</a></h3>
-										<div class="left_text">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</div>
-										<div class="right_img">
-											<a href=""><img src="img/anli_img03.png"/></a>
-											<a href="" class="more">查看详细</a>
-										</div>
-								   </li>
-								   <li>
-										<h3><a href="">智能门禁案例</a></h3>
-										<div class="left_text">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</div>
-										<div class="right_img">
-											<a href=""><img src="img/anli_img01.png"/></a>
-											<a href="" class="more">查看详细</a>
-										</div>
-								   </li>
+									</c:forEach>
+									
 							</ul>
 					</div>
 				</div>

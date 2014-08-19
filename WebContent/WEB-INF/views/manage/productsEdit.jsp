@@ -53,6 +53,9 @@
 				<div class="col-sm-10">
 					排序<input type="text" class="form-control" id="xh" name="xh"
 						style="width: 50px;" value="${products.xh}">
+					&nbsp;&nbsp;&nbsp;&nbsp;顶置首页&nbsp;&nbsp;是<input type="radio" name="isindextop" value="1" <c:if test="${ products.isindextop==1}">checked="checked"</c:if>>
+					否<input type="radio" name="isindextop" value="0" <c:if test="${ products.isindextop!=1}">checked="checked"</c:if>>
+					
 				</div>
 			</div>
 			<div class="form-group">
@@ -75,12 +78,12 @@
 					<textarea rows="20" class="form-control" style="width: 500px;"
 						name="remark" id="mycontent">${products.remark}</textarea>
 					<script>
-						CKEDITOR.replace('mycontent', {
+						/*CKEDITOR.replace('mycontent', {
 							toolbar : "Define",
 							language : 'zh-cn',
 							image_previewText : ' ',
 							filebrowserUploadUrl : 'ckUploadImage.shtml?type=2'
-						});
+						});*/
 					</script>
 				</div>
 			</div>

@@ -49,7 +49,7 @@
 					<li role="presentation" ><a href="#"
 						link="m_baseInfo.shtml">其他</a></li>	
 						<li role="presentation" ><a href="#"
-						link="m_changepwd_v.shtml">修改密码</a></li>							
+						link="m_changepwd.shtml">修改密码</a></li>							
 				</ul>
 
 			</div>

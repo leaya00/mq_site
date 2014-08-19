@@ -50,7 +50,14 @@
 				<div class="col-sm-10">
 					<textarea rows="20" class="form-control" style="width: 500px;"
 						name="remark" id="mycontent">${types.remark}</textarea>
-					
+					<script>
+						CKEDITOR.replace('mycontent', {
+							toolbar : "Define",
+							language : 'zh-cn',
+							image_previewText : ' ',
+							filebrowserUploadUrl : 'ckUploadImage.shtml?type=99'
+						});
+					</script>
 				</div>
 			</div>
 
