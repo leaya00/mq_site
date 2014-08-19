@@ -1,0 +1,15 @@
+把war放在tomcat下，会自解压，然后修改下面配置后重启tomcat
+1、数据库配置
+  WebContent\WEB-INF\spring\spring.xml
+id=dataSource
+修改driverUrl的数据库名（原来叫mq_db）
+修改user password  mysql用户名密码
+2、页面分页配置
+WEB-INF\classes\user.properties
+newsList.pagesize=5    新闻列表界面显示数量
+productsList.pagesize=5 产品列表界面显示数量
+tmentsList.pagesize=5  招聘列表界面显示数量
+
+
+newsScroll.count=5  首页滚动新闻显示数量
+news_hotList.count=7 首页左下角新闻显示数量（包含带图片的第一个新闻）
