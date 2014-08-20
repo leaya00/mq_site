@@ -33,7 +33,7 @@
                 			<ul>
                             	<li class="to"><a href="mentsList.shtml?pageNo=1">米润招聘</a></li>
                             	<!-- <li><a href="#">投资米润</a></li> -->
-                                <li><a href="about.shtml">了解米润</a></li>
+                                <li><a href="other.shtml?p=page_about">了解米润</a></li>
                             	<li><a href="contact.shtml">联系我们</a></li>
                     		</ul>
                     	</div>

@@ -23,7 +23,7 @@
 	</select>
 	<!-- 基本信息 -->
 	<update id="updateBaseInfo" parameterType="map">
-		update baseInfo set value=#{value} where id = #{id}
+		update baseInfo set value=#{value},remark1=#{remark1} where id = #{id}
 	</update>
 	<select id="selectAllBaseInfo" resultType="map">
 		select * from baseInfo  order by xh desc

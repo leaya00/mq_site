@@ -18,6 +18,8 @@ import mq.utils.ValidateCode.ValidateCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -63,8 +65,8 @@ public class IndexController {
 	@Autowired
 	OtherDao otherDao;
 
-	@RequestMapping(value = "/about")
-	public ModelAndView about() {
+	@RequestMapping(value = "/other")
+	public ModelAndView otherpage(@RequestParam(value = "p") String p) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("about");
 		// 获取客服信息
@@ -77,9 +79,19 @@ public class IndexController {
 		mav.addObject("hot_email",
 				otherDao.selectOneBaseInfoByCode("hot_email"));
 
-		mav.addObject("about", otherDao.selectOneBaseInfoByCode("about"));
+		mav.addObject("about", otherDao.selectOneBaseInfoByCode(p));
 		
 		mav.addObject("foot_hottel", otherDao.selectOneBaseInfoByCode("foot_hottel"));
 		return mav;
+	}
+	@RequestMapping(value = "/otherinfo")
+	public @ResponseBody Object otherinfoJson(@RequestParam(value = "p") String p){
+		HashMap<String, Object> result=new HashMap<String, Object>();
+		if(p.equalsIgnoreCase("Favorite")){
+			
+			HashMap<String, Object> favorite = otherDao.selectOneBaseInfoByCode("favorite");
+			result=favorite;
+		}
+		return result;
 	}
 }

@@ -14,7 +14,7 @@ tmentsList.pagesize=5  招聘列表界面显示数量
 newsScroll.count=5  首页滚动新闻显示数量
 news_hotList.count=7 首页左下角新闻显示数量（包含带图片的第一个新闻）
 
-
-管理员用户名admin 密码111
+后台管理页面 http://127.0.0.1:8080/mq_site/m_home.shtml
+管理员用户名 admin 密码111
 
 userImage目录为用户上传的图片，重新部署需要备份并恢复回去
