@@ -5,33 +5,33 @@
 <mapper namespace="mq.mapper.OtherMapper">
 
 	<!-- 客服电话 serviceinfo-->
-	<insert id="insertserviceinfo" parameterType="map">
+	<insert id="insertServiceInfo" parameterType="map">
 		insert into serviceinfo (name,telphone,xh) values(#{name},#{telphone},#{xh})
 	</insert>
-	<update id="updateserviceinfo" parameterType="map">
+	<update id="updateServiceInfo" parameterType="map">
 		update serviceinfo set name=#{name},telphone=#{telphone},xh=#{xh}
 		 where id = #{id}
 	</update>
-	<delete id="deleteserviceinfo" parameterType="string">
+	<delete id="deleteServiceInfo" parameterType="string">
 		delete from serviceinfo where id=#{id}
 	</delete>
-	<select id="selectAllserviceinfo" resultType="map">
+	<select id="selectAllServiceInfo" resultType="map">
 		select * from serviceinfo  order by xh desc
 	</select>
-	<select id="selectOneserviceinfo" resultType="map" parameterType="string">
+	<select id="selectOneServiceInfo" resultType="map" parameterType="string">
 		select * from serviceinfo where id=#{id}
 	</select>
 	<!-- 基本信息 -->
-	<update id="updatebaseinfo" parameterType="map">
+	<update id="updateBaseInfo" parameterType="map">
 		update baseinfo set value=#{value},remark1=#{remark1} where id = #{id}
 	</update>
-	<select id="selectAllbaseinfo" resultType="map">
+	<select id="selectAllBaseInfo" resultType="map">
 		select * from baseinfo  order by xh desc
 	</select>
-	<select id="selectOnebaseinfo" resultType="map" parameterType="string">
+	<select id="selectOneBaseInfo" resultType="map" parameterType="string">
 		select * from baseinfo where id=#{id}
 	</select>
-	<select id="selectOnebaseinfoByCode" resultType="map" parameterType="string">
+	<select id="selectOneBaseInfoByCode" resultType="map" parameterType="string">
 		select * from baseinfo where code=#{code}
 	</select>
 	<!-- 用户管理 -->
