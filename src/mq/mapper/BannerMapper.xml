@@ -11,7 +11,7 @@
 		select * from banner where id=#{id}
 	</select>
 	<insert id="insertBanner" parameterType="map">
-		insert into banner (src,href,xh) values(#{src}.#{href},#{xh})
+		insert into banner (src,href,xh) values(#{src},#{href},#{xh})
 	</insert>
 	<update id="updateBanner" parameterType="map">
 		update banner set src=#{src},href=#{href},xh=#{xh}
