@@ -79,6 +79,69 @@ public class UploadController {
 						.format("<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(%s, '%s', '%s');</script>",
 								funcNum, url, message));
 	}
+	@RequestMapping(value = "/UploadImage")
+	public void UploadImage(HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam(value = "type") String type) throws Exception {
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+		String message = "";
+		String subPath="";
+		if(type.equals("1")){
+			subPath="news";
+		}
+		if(type.equals("2")){
+			subPath="products";
+		}
+		if(type.equals("3")){
+			subPath="tments";
+		}
+		if(type.equals("99")){
+			subPath="type";
+		}
+		
+		String path = request.getSession().getServletContext()
+				.getRealPath(baseFilePath+"/"+subPath);
+		File tmp=new File(path);
+		if(tmp.exists()==false){
+			tmp.mkdirs();
+		}
+		MultipartFile mfile = multipartRequest.getFile("upload");
+		String file_ture_name = UUID.randomUUID().toString();
+		if (mfile.getSize() <= 1024 * 1024 * 5) {
+			String pic_type = mfile.getContentType();
+			
+			String extName = null;
+			if (pic_type.equals("image/jpeg")||pic_type.equals("image/jpg")||pic_type.equals("image/pjpeg")) {
+				extName = ".jpg";
+			} else if (pic_type.equals("image/png")) {
+				extName = ".png";
+			} else if (pic_type.equals("image/bmp")) {
+				extName = ".bmp";
+			} else if (pic_type.equals("image/gif")) {
+				extName = ".gif";
+			} else {
+				message = "文件类型必须是png/gif/jpg/bmp";
+
+			}
+			if (extName != null) {
+				file_ture_name=file_ture_name.concat(extName);
+				File newfile = new File(path, file_ture_name);
+				mfile.transferTo(newfile);
+			}
+		} else {
+			message = "文件大小不能超过5M";
+		}
+
+		String url = baseFilePath+"/"+subPath+"/"+file_ture_name;
+		String funName="uploadImageCallFunction";
+		if(request.getParameter("fun")!=null){
+			funName=request.getParameter("fun");
+		}
+		response.getWriter()
+				.print(String
+						.format("<script type='text/javascript'>window.parent.%s( '%s', '%s');</script>",
+								 funName,url, message));
+	}
 	@RequestMapping(value = "/uploadThumbnail")
 	public void uploadThumbnail(HttpServletRequest request,
 			HttpServletResponse response,@RequestParam(value = "w") int width,@RequestParam(value = "h") int height) throws Exception {

@@ -24,15 +24,12 @@
 		<div class="fullSlide">
 			<div class="bd">
 				<ul>
-					<li _src="url(img/banner01.jpg)" style="background:#66b6e5 center 0 no-repeat;">
-						<a target="_blank" href="#"></a>
+					<c:forEach items="${bannerList }" var="banner">
+						<li _src="url(${banner.src})" style="background:#66b6e5 center 0 no-repeat;">
+						<a target="_blank" href="${banner.href}"></a>
 					</li>
-					<li _src="url(img/brand02.png)" style="background:#DED5A1 center 0 no-repeat;">
-						<a target="_blank" href="#"></a>
-					</li>
-					<li _src="url(img/banner01.jpg)" style="background:#B8CED1 center 0 no-repeat;">
-						<a target="_blank" href="#"></a>
-					</li>
+					</c:forEach>
+					
 				</ul>
 			</div>
 

@@ -10,7 +10,26 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+-- 导出  表 mq_db.banner 结构
+DROP TABLE IF EXISTS `banner`;
+CREATE TABLE IF NOT EXISTS `banner` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `src` varchar(500) NOT NULL,
+  `href` varchar(500) NOT NULL,
+  `xh` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- 正在导出表  mq_db.banner 的数据：~2 rows (大约)
+/*!40000 ALTER TABLE `banner` DISABLE KEYS */;
+INSERT INTO `banner` (`id`, `src`, `href`, `xh`) VALUES
+	(2, 'userImage/type/fabaa409-f165-42ef-bd38-15533af60bfa.jpg', '0', 3),
+	(3, 'userImage/type/8b13ade4-45a9-4867-b26d-6ef0e8d39cb7.jpg', 'http://www.baidu.com', 33);
+/*!40000 ALTER TABLE `banner` ENABLE KEYS */;
+
+
 -- 导出  表 mq_db.baseinfo 结构
+DROP TABLE IF EXISTS `baseinfo`;
 CREATE TABLE IF NOT EXISTS `baseinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(50) DEFAULT NULL,
@@ -21,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `baseinfo` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
--- 正在导出表  mq_db.baseinfo 的数据：~8 rows (大约)
+-- 正在导出表  mq_db.baseinfo 的数据：~16 rows (大约)
 /*!40000 ALTER TABLE `baseinfo` DISABLE KEYS */;
 INSERT INTO `baseinfo` (`id`, `code`, `remark`, `value`, `remark1`, `xh`) VALUES
 	(1, 'hot_email', '热线-联系邮箱', '123123123@qq.com', '', 0),
@@ -44,6 +63,7 @@ INSERT INTO `baseinfo` (`id`, `code`, `remark`, `value`, `remark1`, `xh`) VALUES
 
 
 -- 导出  表 mq_db.modeltype 结构
+DROP TABLE IF EXISTS `modeltype`;
 CREATE TABLE IF NOT EXISTS `modeltype` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `type` int(10) NOT NULL DEFAULT '0',
@@ -68,6 +88,7 @@ INSERT INTO `modeltype` (`id`, `type`, `title`, `remark`, `imgurl1`, `xh`) VALUE
 
 
 -- 导出  表 mq_db.news 结构
+DROP TABLE IF EXISTS `news`;
 CREATE TABLE IF NOT EXISTS `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
@@ -97,6 +118,7 @@ INSERT INTO `news` (`id`, `title`, `type`, `author`, `createtime`, `content`, `i
 
 
 -- 导出  表 mq_db.productdetail 结构
+DROP TABLE IF EXISTS `productdetail`;
 CREATE TABLE IF NOT EXISTS `productdetail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productid` int(11) NOT NULL DEFAULT '0',
@@ -118,6 +140,7 @@ INSERT INTO `productdetail` (`id`, `productid`, `xh`, `content`) VALUES
 
 
 -- 导出  表 mq_db.products 结构
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) NOT NULL DEFAULT '0',
@@ -145,6 +168,7 @@ INSERT INTO `products` (`id`, `type`, `title`, `imgurl1`, `imgurl2`, `remark`, `
 
 
 -- 导出  表 mq_db.serviceinfo 结构
+DROP TABLE IF EXISTS `serviceinfo`;
 CREATE TABLE IF NOT EXISTS `serviceinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '0',
@@ -163,6 +187,7 @@ INSERT INTO `serviceinfo` (`id`, `name`, `telphone`, `xh`) VALUES
 
 
 -- 导出  表 mq_db.tment 结构
+DROP TABLE IF EXISTS `tment`;
 CREATE TABLE IF NOT EXISTS `tment` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(500) DEFAULT NULL,
@@ -179,6 +204,7 @@ INSERT INTO `tment` (`id`, `title`, `content`, `xh`) VALUES
 
 
 -- 导出  表 mq_db.usertable 结构
+DROP TABLE IF EXISTS `usertable`;
 CREATE TABLE IF NOT EXISTS `usertable` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,

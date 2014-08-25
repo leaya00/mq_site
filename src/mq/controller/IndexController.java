@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import mq.dao.BannerDao;
 import mq.dao.NewsDao;
 import mq.dao.OtherDao;
 import mq.dao.ProductsDao;
@@ -30,6 +31,8 @@ public class IndexController {
 	TypeDao typeDao;
 	@Autowired
 	ProductsDao productsDao;
+	@Autowired
+	BannerDao bannerDao;
 	static String newsScrollCount = SystemUtils
 			.getSystemPropertie("newsScroll.count");
 	static String news_hotListCount = SystemUtils
@@ -58,6 +61,9 @@ public class IndexController {
 		mav.addObject("index_about", otherDao.selectOneBaseInfoByCode("index_about"));
 		mav.addObject("index_about_biaoyu", otherDao.selectOneBaseInfoByCode("index_about_biaoyu"));
 		mav.addObject("foot_hottel", otherDao.selectOneBaseInfoByCode("foot_hottel"));
+		//广告
+		mav.addObject("bannerList", bannerDao.selectBannerList());
+		
 		return mav;
 
 	}

@@ -47,6 +47,8 @@
 					<li role="presentation" ><a href="#"
 						link="m_serviceInfo.shtml">客服信息</a></li>
 					<li role="presentation" ><a href="#"
+						link="m_banner.shtml">广告设置</a></li>						
+					<li role="presentation" ><a href="#"
 						link="m_baseInfo.shtml">其他</a></li>	
 						<li role="presentation" ><a href="#"
 						link="m_changepwd.shtml">修改密码</a></li>							

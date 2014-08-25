@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import mq.dao.BannerDao;
 import mq.dao.NewsDao;
 import mq.dao.ProductsDao;
 import mq.dao.TmentsDao;
@@ -270,6 +271,7 @@ public class Indexcontroller {
 		return mav;
 
 	}
+	
 	@MustLogin
 	@RequestMapping(value = "/m_tmentsEdit")
 	public ModelAndView newsTments(@RequestParam(value = "id") String id) {
@@ -326,5 +328,52 @@ public class Indexcontroller {
 		session.setAttribute("ValidateCode", vCode.getCode());
 		vCode.write(response.getOutputStream());
 
+	}
+	@Autowired
+	BannerDao bannerDao;
+	//广告管理
+	@MustLogin
+	@RequestMapping(value = "/m_banner")
+	public ModelAndView bannerList() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manage/bannerList");
+		mav.addObject("bannerList", bannerDao.selectBannerList());
+		return mav;
+
+	}
+	@MustLogin
+	@RequestMapping(value = "/m_bannerEdit")
+	public ModelAndView bannerEdit(@RequestParam(value = "id") String id) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manage/bannerEdit");
+		mav.addObject("id", id);
+		if (id.equals("-1") == false) {
+			HashMap<String, Object> banner = bannerDao.selectBannerOne(id);
+			mav.addObject("banner", banner);
+		}
+		return mav;
+
+	}
+	@MustLogin
+	@RequestMapping(value = "/m_bannerSave")
+	public String bannerSave(@RequestParam(value = "id") String id,
+			HttpServletRequest request) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("src", request.getParameter("src"));
+		map.put("xh", request.getParameter("xh"));
+		map.put("href", request.getParameter("href"));
+		map.put("id", id);
+		if (id.equals("-1")) {
+			// insert
+			bannerDao.insertBanner(map);
+		} else {
+			if (request.getParameter("del") == null) {
+				bannerDao.updateBanner(map);
+			} else {
+				bannerDao.deleteBanner(id);
+			}
+			
+		}
+		return "redirect:/m_banner.shtml";
 	}
 }
