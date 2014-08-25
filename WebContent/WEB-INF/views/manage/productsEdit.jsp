@@ -94,7 +94,7 @@
 				<label for="remark" class="col-sm-2">产品正文</label>
 				<div class="col-sm-10">
 					<textarea rows="20" class="form-control" style="width: 500px;"
-						name="detailcontent" id="detailcontent">${products.detail}</textarea>
+						name="detailcontent" id="detailcontent">${products.detailcontent}</textarea>
 					<script>
 						
 						CKEDITOR.replace('detailcontent', {
@@ -149,7 +149,7 @@
 		</script>
 		<iframe style="display: none;" name='uploadTarget'></iframe>
 		详细信息
-		<table class="table table-bordered">
+		<table class="table table-bordered" style="display: none;">
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
@@ -177,10 +177,10 @@
 		</table>
 		<c:choose>
 			<c:when test="${id!=-1}">
-				<button type="button" class="btn btn-info" onclick="editInfo(-1);">新建页码</button>
+				<button type="button" class="btn btn-info" onclick="editInfo(-1);" style="display: none;">新建页码</button>
 			</c:when>
 			<c:otherwise>
-				产品基本信息保存后才能新增详细信息
+				<b style="display: none;">产品基本信息保存后才能新增详细信息</b>
 			</c:otherwise>
 		</c:choose>
 

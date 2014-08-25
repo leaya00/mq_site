@@ -127,6 +127,8 @@ public class Indexcontroller {
 		products.put("type", type);
 		if (id.equals("-1") ==false) {
 			products=productsDao.getProductsOne(id);
+			products.put("detailcontent", productsDao.getPBProductdetail(id));
+			
 		}
 		mav.addObject("products",products);
 		
@@ -151,9 +153,11 @@ public class Indexcontroller {
 		if (id.equals("-1") ) {
 			//insert
 			productsDao.insertProducts(map);
+			productsDao.savePBProductdetail(request.getParameter("detailcontent"),id);
 			return "redirect:/m_products.shtml?pageNo=1&type="+request.getParameter("type");
 		} else {
 			if (request.getParameter("del") == null) {
+				productsDao.savePBProductdetail(request.getParameter("detailcontent"),id);
 				productsDao.updateProducts(map);
 			} else {
 				productsDao.deleteProducts(id);
