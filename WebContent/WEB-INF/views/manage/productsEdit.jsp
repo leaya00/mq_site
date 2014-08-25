@@ -78,12 +78,12 @@
 					<textarea rows="20" class="form-control" style="width: 500px;"
 						name="remark" id="mycontent">${products.remark}</textarea>
 					<script>
-						CKEDITOR.replace('mycontent', {
+						/*CKEDITOR.replace('mycontent', {
 							toolbar : "Define",
 							language : 'zh-cn',
 							image_previewText : ' ',
 							filebrowserUploadUrl : 'ckUploadImage.shtml?type=2'
-						});
+						});*/
 					</script>
 				</div>
 			</div>
