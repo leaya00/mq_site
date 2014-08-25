@@ -38,7 +38,7 @@
                             	<li <c:if test="${about.code==\"page_wwln\" }">class="to"</c:if>><a href="other.shtml?p=page_wwln">文化理念</a></li>
                             	<li <c:if test="${about.code==\"page_hxjzg\" }">class="to"</c:if>><a href="other.shtml?p=page_hxjzg">核心价值观</a></li>
                             	<li <c:if test="${about.code==\"page_gsxcp\" }">class="to"</c:if>><a href="other.shtml?p=page_gsxcp">公司宣传片</a></li>
-                            	<li <c:if test="${about.code==\"page_qyzzry\" }">class="to"</c:if>><a href="other.shtml?p=page_qyzzry">企业资质荣誉</a></li>
+                            	<!-- li <c:if test="${about.code==\"page_qyzzry\" }">class="to"</c:if>><a href="other.shtml?p=page_qyzzry">企业资质荣誉</a></li> -->
                             	<li <c:if test="${about.code==\"page_tzmr\" }">class="to"</c:if>><a href="other.shtml?p=page_tzmr">投资米润</a></li>
                     		</ul>
                     	</div>
