@@ -86,11 +86,11 @@
 			</div>
 			<ul id="yewuUl">
 				<c:forEach items="${yewuList }" var="yewu" varStatus="yewuStatus">
-				<li  <c:if test="${yewuStatus.last}">class="endli"</c:if>>
-				<div id="yewu0${yewuStatus.index+1}" class="myewu">
-				<img src="${yewu.imgurl1}"/>
-				<a href="#"><span>查看详细</span></a>
-				</div><div class="shuoming"><h3>${yewu.title}</h3><p>${yewu.remark}</p></div></li>
+					<li  <c:if test="${yewuStatus.last}">class="endli"</c:if>>
+					<div id="yewu0${yewuStatus.index+1}" class="myewu">
+					<img src="${yewu.imgurl1}"/>
+					<a href="productsList.shtml?type=${yewu.id}&pageNo=1"><span>查看详细</span></a>
+					</div><div class="shuoming"><h3>${yewu.title}</h3><p>${yewu.remark}</p></div></li>
 				</c:forEach>
 				
 				
