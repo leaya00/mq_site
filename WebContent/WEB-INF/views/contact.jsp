@@ -57,7 +57,7 @@
 			</div>
 			<div class="right_nr">
 				<div class="contact">
-					<p>重庆市江北区</p>
+					<p>重庆市渝北区黄山大道中段55号附2号麒麟D座6楼</p>
 					<p>热 线：${hot_telphone.value}</p>
 					<p>邮 箱：${hot_email.value }</p>
 					<p>联系人：${ hot_linkman.value}</p>
