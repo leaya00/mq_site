@@ -53,9 +53,12 @@
 				<div class="col-sm-10">
 					排序<input type="text" class="form-control" id="xh" name="xh"
 						style="width: 50px;" value="${products.xh}">
-					&nbsp;&nbsp;&nbsp;&nbsp;顶置首页&nbsp;&nbsp;是<input type="radio" name="isindextop" value="1" <c:if test="${ products.isindextop==1}">checked="checked"</c:if>>
-					否<input type="radio" name="isindextop" value="0" <c:if test="${ products.isindextop!=1}">checked="checked"</c:if>>
-					
+					&nbsp;&nbsp;&nbsp;&nbsp;顶置首页&nbsp;&nbsp;是<input type="radio"
+						name="isindextop" value="1"
+						<c:if test="${ products.isindextop==1}">checked="checked"</c:if>>
+					否<input type="radio" name="isindextop" value="0"
+						<c:if test="${ products.isindextop!=1}">checked="checked"</c:if>>
+
 				</div>
 			</div>
 			<div class="form-group">
@@ -75,7 +78,7 @@
 			<div class="form-group">
 				<label for="remark" class="col-sm-2">产品简介</label>
 				<div class="col-sm-10">
-					<textarea rows="20" class="form-control" style="width: 500px;"
+					<textarea rows="10" class="form-control" style="width: 500px;"
 						name="remark" id="mycontent">${products.remark}</textarea>
 					<script>
 						/*CKEDITOR.replace('mycontent', {
@@ -87,11 +90,27 @@
 					</script>
 				</div>
 			</div>
-
+			<div class="form-group">
+				<label for="remark" class="col-sm-2">产品正文</label>
+				<div class="col-sm-10">
+					<textarea rows="20" class="form-control" style="width: 500px;"
+						name="detailcontent" id="detailcontent">${products.detail}</textarea>
+					<script>
+						
+						CKEDITOR.replace('detailcontent', {
+							toolbar : "Definepb",
+							language : 'zh-cn',
+							image_previewText : ' ',
+							filebrowserUploadUrl : 'ckUploadImage.shtml?type=2'
+						});
+					</script>
+				</div>
+			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="button" onclick="saveNews();" class="btn btn-default">保存</button>
-					<button type="button" onclick='window.location.href="m_products.shtml?pageNo=1&type=${products.type}";'
+					<button type="button"
+						onclick='window.location.href="m_products.shtml?pageNo=1&type=${products.type}";'
 						class="btn btn-default">返回</button>
 				</div>
 			</div>
@@ -140,7 +159,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${productdetailList }" var="productdetail" varStatus="xx">
+				<c:forEach items="${productdetailList }" var="productdetail"
+					varStatus="xx">
 					<tr>
 						<td>${productdetail.id}</td>
 						<td>第${xx.index+1}页</td>
@@ -157,13 +177,13 @@
 		</table>
 		<c:choose>
 			<c:when test="${id!=-1}">
-			<button type="button" class="btn btn-info" onclick="editInfo(-1);">新建页码</button>
+				<button type="button" class="btn btn-info" onclick="editInfo(-1);">新建页码</button>
 			</c:when>
 			<c:otherwise>
 				产品基本信息保存后才能新增详细信息
 			</c:otherwise>
 		</c:choose>
-		
+
 	</div>
 	<script type="text/javascript">
 		editInfo=function(id){

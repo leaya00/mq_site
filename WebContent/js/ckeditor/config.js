@@ -24,4 +24,21 @@ CKEDITOR.editorConfig = function(config) {
        ['Styles', 'Format', 'Font', 'FontSize', 'TextColor', 'BGColor']
 
     ];
+    config.toolbar_Definepb =
+
+        [
+
+           ['Source', '-', 'Preview', 'Print', 'Image','PageBreak'],
+
+           ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
+
+           ['Bold', 'Italic', 'Underline', 'Strike'],
+
+           ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+
+           ['Link', 'Unlink', 'Anchor','NumberedList','BulletedList'],
+
+           ['Styles', 'Format', 'Font', 'FontSize', 'TextColor', 'BGColor']
+
+        ];
 };
