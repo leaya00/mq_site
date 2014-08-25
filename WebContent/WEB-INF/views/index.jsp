@@ -85,7 +85,7 @@
 		<div class="yewu">
 			<div class="title">
 				<div class="left">主打品牌业务<span>The main brand business</span></div>
-				<a href="#">查看更多</a>
+				<a href="productsList.shtml?pageNo=1">查看更多</a>
 			</div>
 			<ul id="yewuUl">
 				<c:forEach items="${yewuList }" var="yewu" varStatus="yewuStatus">
