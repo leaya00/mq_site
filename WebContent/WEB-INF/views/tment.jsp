@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="about_right">
-            	<div class="title"><span>Recruitment</span></div>
+            	<div class="title">加入米润<span>/Recruitment</span></div>
                 <div class="right_nr">
                 	<div class="news_ny">
                     	<ul>
