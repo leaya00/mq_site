@@ -52,7 +52,7 @@
 					<textarea rows="20" class="form-control" style="width: 500px;"
 						name="value" id="mycontent">${baseInfo.value}</textarea>
 					<script>
-						/*CKEDITOR
+						CKEDITOR
 								.replace(
 										'mycontent',
 										{
@@ -60,7 +60,7 @@
 											language : 'zh-cn',
 											image_previewText : ' ',
 											filebrowserUploadUrl : 'ckUploadImage.shtml?type=99'
-										});*/
+										});
 					</script>
 				</div>
 			</div>
