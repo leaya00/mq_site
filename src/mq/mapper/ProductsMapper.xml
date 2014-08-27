@@ -5,7 +5,7 @@
 <mapper namespace="mq.mapper.ProductsMapper">
 
 	
-	<insert id="insertProducts" parameterType="map">
+	<insert id="insertProducts" parameterType="map"   useGeneratedKeys="true" keyProperty="id">
 		insert into products (type,title,imgurl1,imgurl2,remark,xh,isindextop) values(#{type},#{title},#{imgurl1},#{imgurl2},#{remark},#{xh},#{isindextop})
 	</insert>
 	<update id="updateProducts" parameterType="map">

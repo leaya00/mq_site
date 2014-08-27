@@ -37,4 +37,7 @@ public class TypeDao  {
     	map.put("type", type);
     	return typeMapper.getTypesTop(map);
     }
+    public void deleteType(String id){
+    	typeMapper.deleteType(id);
+    }
 }

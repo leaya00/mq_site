@@ -15,6 +15,9 @@
 	rel="stylesheet">
 <script type="text/javascript"
 	src="<%=basepath%>/js/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript"
+	src="<%=basepath%>/js/artDialog/artDialog.js?skin=default"></script>
+<script type="text/javascript" src="<%=basepath%>/js/utils.js"></script>
 </head>
 <body>
 	<table class="table table-bordered">
@@ -32,7 +35,7 @@
 				<td>${types.id}</td>
 				<td>${types.title}</td>				
 				<td>${types.xh}</td>
-				<td><button type="button" class="btn btn-info" style="display: none;">删除</button>
+				<td><button type="button" class="btn btn-info" onclick="delInfo(${types.id});">删除</button>
 					<button type="button" class="btn btn-info" onclick="editType(${types.id});">编辑</button></td>
 			</tr>
 			</c:forEach>
@@ -44,6 +47,11 @@
 	<script type="text/javascript">
 		editType=function(id){
 			window.location.href="m_typeEdit.shtml?type=${type}&id="+id;
+		};
+		delInfo=function(id){
+			artDialog.confirm("是否删除id为"+id+"的数据",function(){
+				window.location.href="m_typeSave.shtml?type=${type}&del=1&id="+id;
+			});
 		};
 	</script>
 </body>

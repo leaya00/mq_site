@@ -17,8 +17,9 @@ public class ProductsDao {
 	@Autowired
 	ProductsMapper productsMapper;
 
-	public void insertProducts(HashMap<String, Object> map) {
+	public String insertProducts(HashMap<String, Object> map) {
 		productsMapper.insertProducts(map);
+		return map.get("id").toString();
 	}
 
 	public void updateProducts(HashMap<String, Object> map) {

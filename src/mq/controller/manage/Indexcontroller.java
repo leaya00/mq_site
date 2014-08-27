@@ -152,8 +152,8 @@ public class Indexcontroller {
 		map.put("id", id);
 		if (id.equals("-1") ) {
 			//insert
-			productsDao.insertProducts(map);
-			productsDao.savePBProductdetail(request.getParameter("detailcontent"),id);
+			String autoid=productsDao.insertProducts(map);
+			productsDao.savePBProductdetail(request.getParameter("detailcontent"),autoid);
 			return "redirect:/m_products.shtml?pageNo=1&type="+request.getParameter("type");
 		} else {
 			if (request.getParameter("del") == null) {
@@ -253,7 +253,12 @@ public class Indexcontroller {
 			typeDao.insertType(map);
 			return "redirect:/m_type.shtml?type="+type;
 		} else {
-			typeDao.updateType(map);
+			if (request.getParameter("del") == null) {
+				typeDao.updateType(map);
+			}else{
+				
+				typeDao.deleteType(id);
+			}
 			return "redirect:/m_type.shtml?type="+type;
 		}
 

@@ -23,5 +23,7 @@
 	<update id="updateType" parameterType="map">
 		update modeltype set title=#{title},xh=#{xh},imgurl1=#{imgurl1},remark=#{remark} where id = #{id}
 	</update>
-	
+	<delete id="deleteType" parameterType="String">
+		delete from modeltype where id=#{id}
+	</delete>
 </mapper>
