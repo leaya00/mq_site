@@ -22,8 +22,9 @@ h1, h2, h3, h5, h4, h6 { font-size: 12px; font-weight: normal; }
 /*---------------------top----------------------*/
 .topW{height: 110px;width: 100%; background: url(../img/top_line.png) repeat-x;}
 .top{width: 1000px;background: url(../img/top_line.png) repeat-x;margin: 0 auto;}
-.logo{ background: url(../img/logo.png);width:150px;height: 110px; 	border-left: 1px solid #e5e5e5;border-right: 1px solid #e5e5e5; float: left;}
+.logo{ background: url(../img/logo.png);width:150px;height: 80px; margin-top:30px; float: left;}
 .logo a{ text-indent: -999px; display: block;width: 150px;height: 110px;}
+
 .menu{float: left;width: 828px;}
 .topMenu{ height: 23px; clear: both;}
 .topMenu ul{ float: right;}
