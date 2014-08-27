@@ -43,7 +43,7 @@
 			<c:forEach items="${productsList}" var="products">
 				<tr>
 					<td>${products.id}</td>
-					<td><a target="_blank" href="news.shtml?id=${products.id}">${products.title}</a></td>
+					<td><a target="_blank" href="products.shtml?pageNo=1&id=${products.id}">${products.title}</a></td>
 					<td>${products.xh}</td>
 					<td><button type="button" class="btn btn-info"
 						onclick="delInfo(${products.id});">删除</button>
