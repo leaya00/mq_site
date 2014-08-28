@@ -59,7 +59,7 @@
                     		<c:forEach items="${productsList }" var="products">
                     			<li>
                             	<p class="products_pic"><a href="#"><img src="${products.imgurl2}" /></a></p>
-                                <p class="products_mz"><a target="_blank" href="products.shtml?pageNo=1&id=${products.id}">${products.title }</a></p>
+                                <p class="products_mz"><a  href="products.shtml?pageNo=1&id=${products.id}">${products.title }</a></p>
                            	 </li>
                     		</c:forEach>
                         	

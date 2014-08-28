@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>米润科技</title>
+		<title>重庆米润科技有限公司欢迎您</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery1.42.min.js"></script>
 		<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
@@ -26,7 +26,7 @@
 				<ul>
 					<c:forEach items="${bannerList }" var="banner">
 						<li _src="url(${banner.src})" style="background:#66b6e5 center 0 no-repeat;">
-						<a target="_blank" href="${banner.href}"></a>
+						<a  href="${banner.href}"></a>
 					</li>
 					</c:forEach>
 					
@@ -48,7 +48,7 @@
 								<li><span class="date">
 									<fmt:formatDate value="${newsScroll.createtime}"	pattern="yyyy-MM-dd" />
 								</span>
-								<a href="news.shtml?id=${newsScroll.id}" target="_blank">${newsScroll.title }</a></li>
+								<a href="news.shtml?id=${newsScroll.id}" >${newsScroll.title }</a></li>
 							</c:forEach>
 						
 						</ul>
@@ -65,11 +65,11 @@
 							<ul class="picList">
 									<c:forEach items="${productsIndexTop }" var="pindextop">
 									<li>
-										<h3><a target="_blank" href="products.shtml?pageNo=1&id=${pindextop.id}">${pindextop.title }</a></h3>
+										<h3><a  href="products.shtml?pageNo=1&id=${pindextop.id}">${pindextop.title }</a></h3>
 										<div class="left_text">${pindextop.remark }</div>
 										<div class="right_img">
-											<a target="_blank" href="products.shtml?pageNo=1&id=${pindextop.id}"><img src="${pindextop.imgurl1 }"/></a>
-											<a target="_blank" href="products.shtml?pageNo=1&id=${pindextop.id}" class="more">查看详细</a>
+											<a  href="products.shtml?pageNo=1&id=${pindextop.id}"><img src="${pindextop.imgurl1 }"/></a>
+											<a  href="products.shtml?pageNo=1&id=${pindextop.id}" class="more">查看详细</a>
 										</div>
 								   </li>
 									</c:forEach>
@@ -104,13 +104,13 @@
 				<div class="news_hot">
 					<a href="#" class="img"><img src="${news_top1.imgurl1 }"/></a>
 					<div class="zaiyao">
-						<a class="mtitle" target="_blank"  href="news.shtml?id=${news_top1.id}">${news_top1.title }</a>
+						<a class="mtitle"   href="news.shtml?id=${news_top1.id}">${news_top1.title }</a>
 						${news_top1.content}
 					</div>
 				</div>
 				<ul class="list">
 					<c:forEach items="${news_hotList }" var="news_hot">
-					<li><a target="_blank"  href="news.shtml?id=${news_hot.id}">${news_hot.title }</a></li>
+					<li><a   href="news.shtml?id=${news_hot.id}">${news_hot.title }</a></li>
 					</c:forEach>
 				</ul>
 			</div>

@@ -58,7 +58,7 @@
                 	<div class="news_ny">
                     	<ul>
                     		<c:forEach items="${newsList}" var="news">
-                    			<li><a target="_blank" href="news.shtml?id=${news.id}">${news.title}</a></li>
+                    			<li><a  href="news.shtml?id=${news.id}">${news.title}</a></li>
                     		</c:forEach>
                         	
                             
